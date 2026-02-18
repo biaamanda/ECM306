@@ -7,6 +7,10 @@
 // Total de Capicuas: 5 
 // Obs.: Foram encontradas as seguintes capicuas: 0110 (índices 0, 1, 2 e 3), 2442 (índices 5, 6, 7 e 8), 4224 (índices 7, 8, 9 e 10), 7777 (índices 11, 12, 13 e 14) e 7777 (índices 12, 13, 14 e 15). 
 
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Random;
+
 public class Ex05_Capicuas {
     public static void main(String[] args) {
         
