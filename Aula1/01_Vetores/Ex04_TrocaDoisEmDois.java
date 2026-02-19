@@ -12,6 +12,7 @@ public class Ex04_TrocaDoisEmDois {
         }
 
         //Trocar elementos
+        
         for (int j = 0; j < vectorAZ.length; j += 2){
             char temp = vectorAZ[j];
             vectorAZ[j] = vectorAZ[j + 1];

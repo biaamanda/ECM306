@@ -24,7 +24,7 @@ public class Ex09_MatrizIdentidade {
             }
         }
 
-        System.out.println("\nMatriz Digitada:");
+        System.out.println("Matriz Digitada:");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 System.out.print(matrix[i][j] + " ");
