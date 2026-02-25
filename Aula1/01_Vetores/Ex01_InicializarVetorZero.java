@@ -10,6 +10,5 @@ public class Ex01_InicializarVetorZero {
             vector[i] = i; //vector[i] = 0; se fosse para ser uma lista de zeros
             System.out.print(vector[i] + " ");
         }
-        
     }
 }
