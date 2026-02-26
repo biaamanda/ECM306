@@ -4,7 +4,6 @@
 import java.util.Scanner;
 
 public class Ex09_MatrizIdentidade {
-
     //static int[][] matrix = new int[][]
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
