@@ -2,6 +2,12 @@
 
 public class Ex01iniciarVetor {
     public static void main(String[] args){
+        int N = 50000; 
+        int[] vetor = new int[N];
 
+        for (int i = 0; i < N; i++) {
+            vetor[i] = 0;
+        }
+        System.out.println("Vetor inicializado com 0:");
     }
 }

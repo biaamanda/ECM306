@@ -2,6 +2,15 @@
 
 public class Ex03_LimparVetor {
     public static void main(String[] args){
+        int N = 10;
+        int M = 10;
+        double[][] matriz = new double[N][M];
 
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+            matriz[i][j] = -1;
+            }
+        }
+        System.out.println("Matriz limpa com -1!");
     }
 }
