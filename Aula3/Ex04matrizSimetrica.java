@@ -3,19 +3,27 @@
 
 public class Ex04matrizSimetrica {
     public static void main(String[] args){
-        int N = 10;
-        int M = 10;
-        int[][] matriz = new int[N][M];
-
-        boolean simetrica = true;                               
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (matriz[i][j] != matriz[j][i]) {
-                simetrica = false;
+        int[] size = {10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000};
+        for (int n : size) {
+            int[][] matrix = new int[n][n];
+        
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    matrix[i][j] = (i == j) ? 1 : 0;
                 }
             }
+            long startTime = System.nanoTime();
+            boolean symmetric = true;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (matrix[i][j] != matrix[j][i]) {
+                        symmetric = false;
+                        break;
+                    }
+                }
+            }
+            long endTime = System.nanoTime();
+            System.out.println("Tamanho: " + n + " - Simétrica: " + symmetric + " - Tempo: " + (endTime - startTime) + " ns");
         }
-        System.out.println("A matriz é simétrica: " + simetrica);
     }
 }

@@ -2,13 +2,16 @@
 
 public class Ex02copiarVetor {
     public static void main(String[] args){
-        int N = 50000;
-        int[] A = new int[N];
-        int[] B = new int[N];
-
-        for (int i = 0; i < N; i++) {
-        B[i] = A[i];
+        int[] sizes = {10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000};
+        for (int n : sizes) {
+            int[] original = new int[n];
+            long startTime = System.nanoTime();
+            int[] copy = new int[n];
+            for (int i = 0; i < n; i++) {
+                copy[i] = original[i];
+            }
+            long endTime = System.nanoTime();
+            System.out.println("Tamanho: " + n + " - Tempo: " + (endTime - startTime) + " ns");
         }
-        System.out.println("Vetor copiado com sucesso!");
     }
 }

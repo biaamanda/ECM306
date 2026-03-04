@@ -2,15 +2,19 @@
 
 public class Ex03_LimparVetor {
     public static void main(String[] args){
-        int N = 10;
-        int M = 10;
-        double[][] matriz = new double[N][M];
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-            matriz[i][j] = -1;
+        int[][] dimension = {{10, 10}, {50, 75}, {100, 300}, {500, 200}, {1000, 1000}, {5000, 7000}, {10000, 1}, {50000, 25000}, {100000, 100000}, {500000, 1000}};
+        for (int[] dim : dimension) {
+            int n = dim[0];
+            int m = dim[1];
+            double[][] matrix = new double[n][m];
+            long startTime = System.nanoTime();
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    matrix[i][j] = -1;
+                }
             }
+            long endTime = System.nanoTime();
+            System.out.println("Dimensoes: " + n + "x" + m + " - Tempo: " + (endTime - startTime) + " ns");
         }
-        System.out.println("Matriz limpa com -1!");
     }
 }
