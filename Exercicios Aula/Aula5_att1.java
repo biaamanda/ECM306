@@ -7,3 +7,4 @@ public class Aula5_att1 {
 // 8n^2 < n^3
 // 8*n^2 < n*n^2
 // 8 < n
+// B eh mais eficiente ate n = 7

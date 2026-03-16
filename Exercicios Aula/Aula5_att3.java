@@ -5,4 +5,15 @@ public class Aula5_att3 {
     
 }
 
+//qtde de operacoes = x^2
+//tempo de cada operacao = t / x^2
+//tempo total 
 
+//qtde de operacoes = x^2
+//tempo de cada operacao = t / x^2
+//tempo total 
+
+//ttn = ttv
+//ttv = 1.44 ttn 
+
+//maquina nova 44% mais rapida
