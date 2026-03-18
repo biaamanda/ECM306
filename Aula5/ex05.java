@@ -10,9 +10,20 @@ public class ex05 {
         }
         
         public static int Func(int[] a, int x, int n ) {
-            int resultado = a[n-1];
-            for (int i = 0; i < a.length; i++)
-                resultado = resultado * x + a[i];
+            int resultado = a[n-1]; //1
+            for (int i = 0; i < a.length; i++) //2
+                resultado = resultado * x + a[i]; //3
             return resultado;
         }
 }
+
+/*
+| Linha | Instrução | Frequência |
+
+| 1 | int resultado = a[n-1] | 1 vez |
+| 2 | i < a.length (teste) | n + 1 vezes |
+| 3 | resultado = resultado * x + a[i] | n vezes |
+
+O(n) = 1 + (n+1) + n
+
+O(n) = 2n -> linear */

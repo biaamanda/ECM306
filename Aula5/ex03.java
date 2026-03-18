@@ -15,3 +15,16 @@ public class ex03 {
         System.out.println("resposta = " + resposta);
     }
 }
+
+/*
+| Linha | Instrução | Frequência |
+
+| 1 | int x = 30 | 1 vez |
+| 2 | int i = 0 | 1 vez |
+| 3 | i < n | n + 1 vezes |
+| 4 | x = x + 2 - i | n |
+| 5 | i = i + 1 | n |
+
+O(n) = 1 + 1 + (n+1) + n + n
+
+O(n) = 3n -> crescimento linear */
