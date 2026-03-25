@@ -13,12 +13,14 @@ public class ex05 {
         in.close();
     }
     public static int Func(int n) {
-    int i = 4;
-    int m = 0;
-    while (i <= n) {
-        m = m + 1; // Linha 1
-        i = 1 + 2;
-    }
-    return m;
+        int i = 4;
+        int m = 0;
+        while (i <= n) {
+            m = m + 1; // Linha 1
+            i = i + 2;
+        }
+        return m;
     }
 }
+
+/*Sendo que i inicia em 4, ou seja o primeiro termo fica n - 4. Como a variável cresce de 2 em 2, tem-se que (n - 2)/2, portanto pode se concluir que a complexidade é linear (O(n)). */

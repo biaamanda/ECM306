@@ -2,10 +2,6 @@
 funciona mais rápido que um algoritmo cujo tempo de execução é 2n na mesma
 máquina? */
 
-package Aula6;
+/*100n^2 > 2^n
 
-public class ex09 {
-    public static void main(String[] args) {
-        
-    }
-}
+A partir de n = 15, o 100n^2 passa a ter menos operações, ou seja, executa mais rápido. */

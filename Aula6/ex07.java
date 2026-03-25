@@ -13,9 +13,12 @@ public class ex07 {
     }
     public static int Func (int n) {
         int m = 0;
-        for (int i=1; i <= n; i++) for (int j = i; j <= n; j++ ) {
-            m = m + 1;// Linha 1
+        for (int i=1; i <= n; i++) 
+            for (int j = i; j <= n; j++ ) {
+                m = m + 1;// Linha 1
         }
         return m;
     }
 }
+
+//A linha 1 será executada (n(n + 1))/2, tendo sua função de complexidade O(n^2).

@@ -20,3 +20,5 @@ public class ex04 {
         return m;
     }
 }
+
+/*Considerando que i e j inicia em 2 e termina em i e j menor que n,  cada for será executado n - 2 vezes e como são dois fors ((n - 2) x (n - 2))a função de complexidade fica em O(n) = n² */

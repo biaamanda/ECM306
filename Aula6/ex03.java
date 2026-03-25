@@ -21,3 +21,5 @@ public class ex03 {
         return m;
     }
 }
+
+/*A Linha 1 será executada n² vezes, portanto a complexidade é O(n²),  considerando que o for de i será executado n vezes e entrará no segundo for que também será executado n vezes. */

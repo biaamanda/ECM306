@@ -2,10 +2,6 @@
 e 4n^3. Qual o maior valor de n, para o qual o algoritmo B é mais eficiente que o
 algoritmo A? */
 
-package Aula6;
+/*4n^23 < 128n^2
 
-public class ex10 {
-    public static void main(String[] args) {
-        
-    }
-}
+A partir de n = 33 o algoritmo A passa a ser mais eficiente. */

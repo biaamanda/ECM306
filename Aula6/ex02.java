@@ -2,10 +2,4 @@
 é necessário desenvolver a Função de Complexidade, deve-se, apenas, apresentar a
 Ordem de Complexidade do Algoritmo; */
 
-package Aula6;
-
-public class ex02 {
-    public static void main(String[] args) {
-        
-    }
-}
+/*O pior caso ocorre quando o array está em ordem decrescente, pois cada elemento precisa ser comparado com todos os anteriores, com ordem de complexidade O(n^2) */

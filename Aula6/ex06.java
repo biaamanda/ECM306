@@ -22,3 +22,5 @@ public class ex06 {
         return m;
     }
 }
+
+/*Considerando que i dobra a cada iteração e que o laço para em i maior que n, tem-se 2^k > n. Sendo assim, o programa executará T(n) = log2(n) + 1, logo é uma função O(log n). */
