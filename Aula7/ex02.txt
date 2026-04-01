@@ -1,0 +1,9 @@
+Um algoritmo apresenta Função de Complexidade F(n) = n^3. Prove ou disprove que a Função de
+Complexidade F(n) pertence à ordem de complexidade O(n^3)
+
+n^3 <= n^3
+
+n = 1
+1 <= 1
+n = 2
+2 <= 2

@@ -1,0 +1,12 @@
+Um algoritmo apresenta Função de Complexidade F(n) = 5n^2 + 10n + 8. Prove ou disprove que
+a Função de Complexidade F(n) pertence à ordem de complexidade O(n).
+
+5n^2 + 10n + 8 <= n
+5n^2 + 10n + 8 <= 5n + 10n + 8n
+
+n = 1
+23 <= 23
+n = 2
+48 <= 46 !
+n = 3
+83 + 8 <= 69
