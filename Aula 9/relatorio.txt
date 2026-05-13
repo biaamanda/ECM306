@@ -1,0 +1,148 @@
+Implementar em Java o algoritmo MERGESORT;
+Qual é a ORDEM DE COMPLEXIDADE do Algoritmo, considerando o pior caso?
+Não é necessário desenvolver a função de complexidade, apenas apresentar a
+ordem de complexidade do Algoritmo.
+
+public class MergeSort {
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
+
+    private static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        // Copy data
+        for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+        for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+}
+
+Utilização
+
+public static void main(String[] args) {
+    int[] arr = {38, 27, 43, 3, 9, 82, 10};
+    mergeSort(arr, 0, arr.length - 1);
+    for (int num : arr) {
+        System.out.print(num + " ");
+    }
+}
+
+Ordem de complexidade
+O(nlogn)
+A ordem de complexidade do Merge Sort no pior caso é O(n log n), válida também
+para o caso médio. O algoritmo é ótimo assintoticamente para ordenações
+baseadas em comparação.
+
+
+Implementar em Java o algoritmo de BUSCA BINÁRIA, versão Recursiva;
+Qual é a ORDEM DE COMPLEXIDADE do Algoritmo? Justifique!
+
+public class BinarySearch {
+    do
+    /**
+    * Busca recursiva pelo valor 'key' no intervalo arr[left..right].
+    * Pré-condição: arr deve estar ordenado em ordem crescente.
+    *
+    * @return índice do elemento encontrado, ou -1 caso ausente.
+    */
+    public static int binarySearch(int[] arr, int left, int right, int key) {
+        // caso base: intervalo vazio → elemento não encontra
+        if (left > right) {
+            return -1;
+        }
+        int mid = left + (right - left) / 2; // evita overflow
+        if (arr[mid] == key) {
+            return mid;                                      
+            // encontrado
+        } else if (key < arr[mid]) {
+            return binarySearch(arr, left, mid - 1, key);   
+            // metade esquerda
+        } else {
+            return binarySearch(arr, mid + 1, right, key);  
+            // metade direita
+        }
+    }
+}
+
+Utilização
+
+public static void main(String[] args) {
+    int[] arr = {10, 12, 20, 22, 35, 37, 39, 40, 56, 70, 71, 75};
+    int idx = binarySearch(arr, 0, arr.length - 1, 39);
+    System.out.println("Elemento 39 encontrado no índice: " + idx); // → 6
+    int miss = binarySearch(arr, 0, arr.length - 1, 50);
+    System.out.println("Elemento 50: " + miss); // → -1
+}
+
+Ordem de Complexidade
+O(logn)
+A ordem de complexidade da Busca Binária Recursiva é O(log n) no pior caso
+(elemento ausente ou na última posição verificada). A cada nível de recursão, o
+problema é dividido ao meio, gerando uma árvore de recursão com altura log2 n.
+
+Validação
+Executando ambos os algoritmos utilizando o array:
+a = 10, 12, 20, 22, 35, 37, 39, 40, 56, 70, 71, 75
+O elemento buscado na busca binária foi 39 (posição central do array). Os tempos
+reportados são em nanossegundos (ns).
+
+Tentativa       Merge Sort (ns)     Busca Binária (ns)
+1               5228,09             251,91
+2               5047,90             252,80
+3               4868,07             262,10
+4               4898,28             252,39
+5               4871,47             250,95
+Média           4982,76             254,03
+
+Gráfico
+
+Análise dos Resultados
+Ao analisar a razão entre os tempos médios temos:
+    tMergeSort / tBuscaBinária =  4982,76 / 254,03 = 19,6×
+Esse resultado esta de acordo com a análise teórica (n = 12):
+    nlog2n/log2n = n = 12
+O fator teórico esperado n = 12, mas o valor observado é 19,6, portanto
+ligeiramente maior porque o
+Merge Sort possui constantes ocultas maiores. 
+Projeção 
+Embora o experimento use n fixo, a teoria prevê o seguinte comportamento
+assintótico comparativo:
+
+n           n log2 n (MergeSort)        log2 n (BuscaBinária)       Razão teórica
+12              43                          3.6                         12x
+1000            9 966                       10                          1000x
+1 000 000       19.931.568                  20                          1.000.000
+
+Pode-se concluir que a diferença cresce linearmente com n: para entradas
+maiores, a Busca Binária se torna exponencialmente mais rápida que o Merge Sort
+— o que faz sentido, pois são algoritmos para problemas distintos.
