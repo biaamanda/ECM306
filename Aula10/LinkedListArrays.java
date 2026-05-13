@@ -2,7 +2,6 @@
 ponteiro explícito.
 • Pode-se representar uma coleção de objetos que têm os mesmos campos usando-se um arranjo para cada campo;
 • Como exemplo, a figura abaixo mostra como se pode implementar uma lista ligada com três arranjos:
-
 • O objeto com chave 4 segue o objeto com chave 16 na lista ligada;
 A chave 4 aparece em chave[2]; e a chave 16 aparece em chave[5];
 assim, tem-se: próximo[5] = 2 e anterior[2] = 5
@@ -85,7 +84,6 @@ public class LinkedListArrays {
         L = x;
         size++;
     }
-
 
     // Busca pelo primeiro elemento com chave == valor; retorna índice ou NIL
     // Equivale a LIST-SEARCH de Cormen
@@ -179,13 +177,13 @@ public class LinkedListArrays {
 
         LinkedListArrays lista = new LinkedListArrays();
 
-        System.out.println("\n 1. Criação da lista com valores");
+        System.out.println("\n 1. Criaçao da lista com valores");
         // 9 - 16 - 4 - 1
         lista.criarLista(new int[]{1, 4, 16, 9});
         lista.imprimir();
         lista.imprimirArranjos();
 
-        System.out.println("\n 2. Inserção do valor 25");
+        System.out.println("\n 2. Inserçao do valor 25");
         lista.inserir(25);
         lista.imprimir();
         lista.imprimirArranjos();
