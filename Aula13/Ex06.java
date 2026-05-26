@@ -1,4 +1,4 @@
-package Aula12;
+package Aula13;
 
 /* Escrever um método que irá retornar a média aritmética dos valores
 armazenados na árvore; */

@@ -1,4 +1,4 @@
-package Aula12;
+package Aula13;
 
 /*Escrever um método que verifica se um dado valor inteiro K está
 presente na árvore */

@@ -1,4 +1,4 @@
-package Aula12;
+package Aula13;
 
 /*Percorrer a árvore binária, imprimindo os valores dos nós segundo as
 estratégias de busca: preOrder, postOrder e inOrder; */

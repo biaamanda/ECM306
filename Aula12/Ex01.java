@@ -1,6 +1,6 @@
-package Aula11;
+package Aula12;
 
-/*1. Considere uma árvore que armazena valores inteiros em um nó
+/*Considere uma árvore que armazena valores inteiros em um nó
 com a estrutura de nós definida em aula.
 a. Escrever um método chamado imprimeFilhos() que imprime
 os valores inteiros armazenados nos filhos de um determinado nó;
@@ -20,6 +20,6 @@ g. Escrever um método chamado posorder() que quando
 aplicado à um determinado nó da árvore imprime o percurso
 posorder a partir do nó considerado. */
 
-public class ex01 {
+public class Ex01 {
     
 }
