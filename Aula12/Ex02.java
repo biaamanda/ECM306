@@ -11,6 +11,23 @@ d. Escrever um método chamado dobraPai() que multiplica por 2
 o valor armazenado no pai de um determinado nó e executar
 essa função para o nó 2. */
 
+class No {
+    int valor;
+    No esq;
+    No dir;
+
+    public No(int valor) {
+        this.valor = valor;
+        this.esq = null;
+        this.dir = null;
+    }
+}
+
 public class Ex02 {
-    
+    public static void main(String[] args) {
+
+        Ex02 arvore = new Ex02();
+
+        arvore.raiz = new No(5);
+    }
 }
