@@ -79,7 +79,7 @@ public class Ex01 {
     public static void main(String[] args) {
 
         // raiz
-        NodeTree root = new NodeTree(0);
+        NodeTree raiz = new NodeTree(0);
 
         // nós
         NodeTree no1 = new NodeTree(1);
@@ -92,12 +92,12 @@ public class Ex01 {
         // relacionamentos
 
         // filhos de 0
-        root.firstChild = no1;
+        raiz.firstChild = no1;
 
-        no1.parent = root;
+        no1.parent = raiz;
         no1.next = no2;
 
-        no2.parent = root;
+        no2.parent = raiz;
 
         // filhos de 2
         no2.firstChild = no3;
@@ -116,7 +116,7 @@ public class Ex01 {
         no6.parent = no3;
 
         // raiz
-        System.out.println("Raiz: " + root.valor);
+        System.out.println("Raiz: " + raiz.valor);
 
         // folhas
         System.out.println("Nó 1 é folha? " + no1.isLeaf());
@@ -134,15 +134,12 @@ public class Ex01 {
 
         // descendentes
         System.out.print("Descendentes de 2: ");
-
         no2.descendentes();
 
         System.out.println();
 
-        // preorder
         System.out.print("Preorder: ");
-
-        root.preorder();
+        raiz.preorder();
 
         System.out.println();
     }

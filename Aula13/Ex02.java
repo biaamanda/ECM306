@@ -97,24 +97,18 @@ public class Ex02 {
         arvore.raiz.dir.esq.esq = new No(5);
         arvore.raiz.dir.esq.dir = new No(6);
 
-
-        // preorder
+        
         System.out.print("PreOrder: ");
-
         arvore.preOrder(arvore.raiz);
 
         System.out.println();
 
-        // postorder
         System.out.print("PostOrder: ");
-
         arvore.postOrder(arvore.raiz);
 
         System.out.println();
 
-        // inorder
         System.out.print("InOrder: ");
-
         arvore.inOrder(arvore.raiz);
     }
 }
