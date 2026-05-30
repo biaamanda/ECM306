@@ -42,13 +42,15 @@ public class Ex03 {
 
         arvore.raiz = new No(3);
 
-        arvore.raiz.esq = new No(7);
-        arvore.raiz.dir = new No(8);
+        arvore.raiz.dir = new No(7);
 
-        arvore.raiz.dir.esq = new No(9);
-        arvore.raiz.dir.dir = new No(10);
+        arvore.raiz.dir.dir = new No(8);
 
-        arvore.raiz.dir.esq.esq = new No(5);
+        arvore.raiz.dir.dir.dir = new No(9);
+
+        arvore.raiz.dir.dir.dir.dir = new No(10);
+
+        arvore.raiz.dir.dir.dir.dir.esq = new No(5);
 
         System.out.print("PreOrder: ");
         arvore.preOrder(arvore.raiz);
