@@ -34,13 +34,12 @@ public class Ex11 {
 
         arvore.raiz.dir = new No(7);
 
+        arvore.raiz.dir.esq = new No(5);
         arvore.raiz.dir.dir = new No(8);
 
         arvore.raiz.dir.dir.dir = new No(9);
 
         arvore.raiz.dir.dir.dir.dir = new No(10);
-
-        arvore.raiz.dir.dir.dir.dir.esq = new No(5);
 
         int quantidade = arvore.quantidadeNulls(arvore.raiz);
 
