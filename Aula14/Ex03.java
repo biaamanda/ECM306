@@ -25,9 +25,7 @@ public class Ex03 {
 
         if (no != null) {
 
-            System.out.print(
-                no.valor + " "
-            );
+            System.out.print(no.valor + " ");
 
             preOrder(no.esq);
 

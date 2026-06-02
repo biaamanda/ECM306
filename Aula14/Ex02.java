@@ -70,7 +70,7 @@ public class Ex02 {
         arvore.raiz.dir.dir.dir.dir = new No(10);
 
         System.out.print("Digite o valor a inserir: ");
-        int k = leia.nextInt();
+        int k = scanner.nextInt();
         arvore.inserir(arvore.raiz, k);
 
         System.out.println("Arvore em ordem:");
@@ -78,5 +78,4 @@ public class Ex02 {
 
         scanner.close();
     }
-}
 }
