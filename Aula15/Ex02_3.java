@@ -2,5 +2,7 @@
 gestantes ou puérperas; */
 
 public class Ex02_3 {
-    
+    public static void main(String[] args) {
+        
+    }
 }
