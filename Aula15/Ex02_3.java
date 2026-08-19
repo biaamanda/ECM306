@@ -9,17 +9,15 @@ public class Ex02_3 {
 
         String nome;
         int idade;
-        boolean gestante;
-        boolean puerpera;
+        boolean gestantePuerpera;
         int prioridade;
         int senha;
 
-        public Paciente(String nome, int idade, boolean gestante, boolean puerpera, int prioridade, int senha) {
+        public Paciente(String nome, int idade, boolean gestantePuerpera, int prioridade, int senha) {
 
             this.nome = nome;
             this.idade = idade;
-            this.gestante = gestante;
-            this.puerpera = puerpera;
+            this.gestantePuerpera = gestantePuerpera;
             this.prioridade = prioridade;
             this.senha = senha;
         }
@@ -29,10 +27,17 @@ public class Ex02_3 {
 
             String situacao;
 
-            if (gestante) {
-                situacao = "Gestante";
+            if (prioridade == 0) {
+                situacao = "Idoso acima de 80 anos";
+
+            } else if (prioridade == 1) {
+                situacao = "Idoso acima de 60 anos";
+
+            } else if (gestantePuerpera) {
+                situacao = "Gestante ou puerpera";
+
             } else {
-                situacao = "Puerpera";
+                situacao = "Demais pacientes";
             }
 
             return "Senha: " + senha +
@@ -53,7 +58,6 @@ public class Ex02_3 {
             tamanho = 0;
         }
 
-        // Insere paciente no Heap
         public void inserir(Paciente paciente) {
 
             if (tamanho == heap.length) {
@@ -66,7 +70,6 @@ public class Ex02_3 {
             int atual = tamanho;
             tamanho++;
 
-            // Reorganiza o Heap para cima
             while (atual > 0) {
 
                 int pai = (atual - 1) / 2;
@@ -105,6 +108,7 @@ public class Ex02_3 {
 
                 int esquerda = 2 * i + 1;
                 int direita = 2 * i + 2;
+
                 int menor = i;
 
                 if (esquerda < tamanho &&
@@ -124,6 +128,7 @@ public class Ex02_3 {
                 }
 
                 trocar(i, menor);
+
                 i = menor;
             }
         }
@@ -142,13 +147,11 @@ public class Ex02_3 {
                 return;
             }
 
-            System.out.println("\n--- FILA DE PRIORIDADE 2 ---");
+            System.out.println("\n--- FILA COMPLETA ---");
 
             for (int i = 0; i < tamanho; i++) {
                 System.out.println(heap[i]);
             }
-
-            System.out.println();
         }
 
         public boolean vazia() {
@@ -157,6 +160,7 @@ public class Ex02_3 {
     }
 
     public static void main(String[] args) {
+
         Scanner entrada = new Scanner(System.in);
 
         Heap fila = new Heap(100);
@@ -165,7 +169,7 @@ public class Ex02_3 {
         int opcao;
 
         do {
-            System.out.println("    LABORATORIO DE EXAMES");
+            System.out.println("      LABORATORIO DE EXAMES");
             System.out.println("1 - Adicionar paciente");
             System.out.println("2 - Atender paciente");
             System.out.println("3 - Mostrar fila");
@@ -178,6 +182,7 @@ public class Ex02_3 {
             switch (opcao) {
 
                 case 1:
+
                     System.out.println("\n--- NOVO PACIENTE ---");
 
                     System.out.print("Nome: ");
@@ -187,53 +192,64 @@ public class Ex02_3 {
                     int idade = entrada.nextInt();
                     entrada.nextLine();
 
-                    System.out.println("\nSituacao da paciente:");
-                    System.out.println("1 - Gestante");
-                    System.out.println("2 - Puerpera");
-                    System.out.print("Escolha: ");
+                    System.out.print("E gestante ou puerpera? (s/n): ");
+                    String resposta = entrada.nextLine();
 
-                    int situacao = entrada.nextInt();
-                    entrada.nextLine();
+                    boolean gestantePuerpera =
+                            resposta.equalsIgnoreCase("s");
 
-                    boolean gestante = false;
-                    boolean puerpera = false;
+                    int prioridade;
 
-                    if (situacao == 1) {
-                        gestante = true;
-                    } else if (situacao == 2) {
-                        puerpera = true;
+                    /*
+                     * DEFINICAO DA PRIORIDADE
+                     *
+                     * 0 -> acima de 80 anos
+                     * 1 -> acima de 60 anos
+                     * 2 -> gestante ou puerpera
+                     * 3 -> demais pacientes
+                     */
+
+                    if (idade > 80) {
+
+                        prioridade = 0;
+
+                    } else if (idade > 60) {
+
+                        prioridade = 1;
+
+                    } else if (gestantePuerpera) {
+
+                        prioridade = 2;
+
                     } else {
-                        System.out.println("\nSituacao invalida!");
-                        break;
+
+                        prioridade = 3;
                     }
 
-                    Paciente paciente = new Paciente(nome, idade, gestante, puerpera, 2, proximaSenha);
+                    Paciente paciente = new Paciente(nome, idade, gestantePuerpera, prioridade, proximaSenha);
 
                     fila.inserir(paciente);
 
-                    System.out.println("\nPaciente cadastrada!");
+                    System.out.println("\nPaciente cadastrado!");
                     System.out.println("Senha: " + proximaSenha);
-                    System.out.println("Prioridade: 2");
+                    System.out.println("Prioridade: " + prioridade);
 
                     proximaSenha++;
 
                     break;
 
                 case 2:
-                    if (fila.vazia()) {
 
-                        System.out.println(
-                            "\nNao ha pacientes na fila."
-                        );
+                    if (fila.vazia()) {
+                        System.out.println("\nNao ha pacientes na fila.");
 
                     } else {
                         Paciente atendido = fila.remover();
 
                         System.out.println("\n--- ATENDIMENTO ---");
-                        System.out.println("Paciente atendida:");
+                        System.out.println("Paciente atendido:");
                         System.out.println(atendido);
                     }
-
                     break;
 
                 case 3:
