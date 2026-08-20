@@ -1,5 +1,5 @@
 /*
- * EXERCÍCIO 1 - Hashing Interno sem Tratamento de Colisão
+ * PARTE A - Hashing Interno sem Tratamento de Colisão
  *
  * ENUNCIADO:
  * 1. Completar o método hash() no programa, utilizando a função
@@ -9,41 +9,56 @@
  * 4. Como foi feito o tratamento de colisões?
  * 5. Que sugestões apresentar para o tratamento das colisões?
  *
- * Observação: a classe Aluno e os dados originais aparecem nas páginas
- * 2 a 5 do material. Este arquivo deixa uma implementação-base para
- * testar a função de hashing.
+ * 
  */
 
 public class Ex01_HashingSemColisao {
-
-    static int hash(int chave, int n) {
-        return chave % n;
-    }
-
     public static void main(String[] args) {
-        int[] tabAluno = {10, 21, 32, 43, 54, 65, 76, 87, 98, 19};
-        int n = 10;
-        int[] tabela = new int[n];
+        Aluno[] tabAluno = new Aluno[10];
 
-        for (int i = 0; i < n; i++) {
-            tabela[i] = -1;
-        }
+        tabAluno[0] = new Aluno(10, "Ana");
+        tabAluno[1] = new Aluno(21, "Silas");
+        tabAluno[2] = new Aluno(22, "Ari");
+        tabAluno[3] = new Aluno(24, "Pedro");
+        tabAluno[4] = new Aluno(35, "Jonas");
+        tabAluno[5] = new Aluno(60, "Saul");
+        tabAluno[6] = new Aluno(44, "Josue");
+        tabAluno[7] = new Aluno(57, "Paulo");
+        tabAluno[8] = new Aluno(80, "Sara");
+        tabAluno[9] = new Aluno(90, "Davi");
 
-        for (int chave : tabAluno) {
-            int indice = hash(chave, n);
+        int hashCode = null, chave;
+        Aluno[] tabHash = new Aluno[10];
+        for(int i = 0; i < tabAluno.length; i++) {
+            chave = (tabAluno[i].getcodAluno());
+            hashCode = hash(chave);
+            System.out.println("Chave: " + chave + " Hash: " + hashCode);
 
-            if (tabela[indice] != -1) {
-                System.out.println("Colisão: chave " + chave
-                        + " com chave " + tabela[indice]
-                        + " no índice " + indice);
+            if(tabHash[hashCode] == null) {
+                tabHash[hashCode] = tabAluno[i];
             } else {
-                tabela[indice] = chave;
+                System.out.println("Colisao no slot da Tabela Hash: ");
+                System.out.println("Chave: " + tabAluno[i].getcodAluno() + "NAO ARMAZENA NA TABELA HASH \n");
             }
         }
 
-        System.out.println("\nTabela Hash:");
-        for (int i = 0; i < tabela.length; i++) {
-            System.out.println(i + " -> " + tabela[i]);
+        System.out.println("\n Tabela Aluno: ");
+
+        for(int i = 0; i < tabAluno.length; i++) {
+            System.out.println("Slot: " + i + " ---> " + tabAluno[i].getcodAluno() + " " + tabAluno[i].getnomeAluno());
         }
+
+        System.out.println("\n Tabela Hash: ");
+        for(int i = 0; i < tabHash.length; i++) {
+            if(tabHash[i] == null) {
+                System.out.println("Slot: " + i + " ---> valor nulo");
+            } else {
+                System.out.println("Slot: " + i + " ---> " + tabHash[i].getcodAluno() + " " + tabHash[i].getnomeAluno() +"\n");
+            }
+        }
+    }
+
+    public static int hash(int key) {
+        
     }
 }
