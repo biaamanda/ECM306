@@ -42,46 +42,4 @@
  * 7. Modificar o exercício, para um total de 100.000 chaves, com valores de
  * 1 a 99.999. Para esse universo de chaves, considerar a tabela hash com
  * capacidade para armazenar 1000 chaves.
- *
  */
-
-import java.util.LinkedList;
-
-public class Ex02_Encadeamento {
-
-    static int hash(int chave, int n) {
-        return chave % n;
-    }
-
-    public static void main(String[] args) {
-        int[] tabKeys = new int[20];
-
-        for (int i = 1; i < tabKeys.length; i++) {
-            tabKeys[i] = i;
-        }
-
-        @SuppressWarnings("unchecked")
-        LinkedList<Integer>[] tabHash = new LinkedList[10];
-
-        for (int i = 0; i < tabHash.length; i++) {
-            tabHash[i] = new LinkedList<>();
-        }
-
-        for (int chave = 1; chave <= 19; chave++) {
-            int indice = hash(tabKeys[chave], tabHash.length);
-            tabHash[indice].addFirst(tabKeys[chave]);
-        }
-
-        System.out.println("Tabela Hash com encadeamento:");
-
-        for (int i = 0; i < tabHash.length; i++) {
-            System.out.print(i + " -> ");
-
-            for (int chave : tabHash[i]) {
-                System.out.print(chave + " ");
-            }
-
-            System.out.println();
-        }
-    }
-}

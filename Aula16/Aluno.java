@@ -1,5 +1,3 @@
-package Aula16;
-
 public class Aluno {
     private String nome;
     private int codAluno;

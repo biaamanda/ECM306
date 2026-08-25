@@ -6,10 +6,15 @@
  *    hash h = chave mod n.
  * 2. Executar o código e avaliar sua execução.
  * 3. Responder: houve colisões? Em caso afirmativo, quantas e quais?
+ *      Sim. Houve 4 colisões:
+ *      60 → colide no slot 0 com 10
+ *      44 → colide no slot 4 com 24
+ *      80 → colide no slot 0 com 10 
+ *      90 → colide no slot 0 com 10
  * 4. Como foi feito o tratamento de colisões?
+ *      Não houve tratamento de colisões. As chaves que colidiram não foram armazenadas na tabela e apenas retornam uma mensagem de erro.
  * 5. Que sugestões apresentar para o tratamento das colisões?
- *
- * 
+ *      Poderia ser feito um encadeamento, onde vários elementos poderiam ser armazenados na mesma posição em forma de lista. Ou poderia ser utilizado a técnica de rehashing, onde o elemento que colidiu iria procurar uma outra posição disponível na tabela. 
  */
 
 public class Ex01_HashingSemColisao {
@@ -27,10 +32,13 @@ public class Ex01_HashingSemColisao {
         tabAluno[8] = new Aluno(80, "Sara");
         tabAluno[9] = new Aluno(90, "Davi");
 
-        int hashCode = null, chave;
+        int hashCode;
+        int chave;
+
         Aluno[] tabHash = new Aluno[10];
+
         for(int i = 0; i < tabAluno.length; i++) {
-            chave = (tabAluno[i].getcodAluno());
+            chave = tabAluno[i].getcodAluno();
             hashCode = hash(chave);
             System.out.println("Chave: " + chave + " Hash: " + hashCode);
 
@@ -38,27 +46,28 @@ public class Ex01_HashingSemColisao {
                 tabHash[hashCode] = tabAluno[i];
             } else {
                 System.out.println("Colisao no slot da Tabela Hash: ");
-                System.out.println("Chave: " + tabAluno[i].getcodAluno() + "NAO ARMAZENA NA TABELA HASH \n");
+                System.out.println("Chave: " + tabAluno[i].getcodAluno() + " NAO ARMAZENA NA TABELA HASH \n");
             }
         }
 
         System.out.println("\n Tabela Aluno: ");
 
         for(int i = 0; i < tabAluno.length; i++) {
-            System.out.println("Slot: " + i + " ---> " + tabAluno[i].getcodAluno() + " " + tabAluno[i].getnomeAluno());
+            System.out.println("Slot: " + i + " ---> " + tabAluno[i].getcodAluno() + " " + tabAluno[i].getNome());
         }
 
         System.out.println("\n Tabela Hash: ");
+
         for(int i = 0; i < tabHash.length; i++) {
             if(tabHash[i] == null) {
                 System.out.println("Slot: " + i + " ---> valor nulo");
             } else {
-                System.out.println("Slot: " + i + " ---> " + tabHash[i].getcodAluno() + " " + tabHash[i].getnomeAluno() +"\n");
+                System.out.println("Slot: " + i + " ---> " + tabHash[i].getcodAluno() + " " + tabHash[i].getNome() +"\n");
             }
         }
     }
 
-    public static int hash(int key) {
-        
+    public static int hash(int key) { //parte 1
+        return key % 10;
     }
 }
