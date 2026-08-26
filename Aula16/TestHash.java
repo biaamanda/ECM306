@@ -19,7 +19,7 @@ public class TestHash {
 
         // Inicializa as listas
         for (int i = 0; i < tabHash.length; i++) {
-
+            
             tabHash[i] = new SList();
         }
 
@@ -32,7 +32,6 @@ public class TestHash {
              * Se já existir uma chave nessa posição,
              * ela será adicionada à mesma lista.
              */
-
             tabHash[indice].insereInicio(tabKeys[chave]);
         }
 
