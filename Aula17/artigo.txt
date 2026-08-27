@@ -1,0 +1,24 @@
+Introdução à Teoria dos Grafos
+O que é?
+• Modelo matemático abstrato 𝐺=(𝑉,𝐸), composto por Vértices
+(𝑉 - entidades/nós) e Arestas (𝐸 - conexões/relações).
+Para que serve?
+• Para modelar, estruturar e solucionar problemas complexos de
+conectividade, dependência, percursos e otimização de recursos.
+Onde é utilizado?
+• Redes de Computadores: Roteamento de pacotes e topologias de rede.
+• Sistemas de Navegação: Cálculo de menores caminhos e malhas
+logísticas.
+• Compiladores: Análise de fluxo de dados e controle de código.
+
+Exercício
+• Individualmente, escrever um artigo, no formato científico, que
+descreve os tópicos abordados pela aula “Introdução à Teoria
+dos Grafos” e em seu respectivo material;
+• O artigo deverá estar aderente às normas da ABNT e conter:
+✓ Resumo (Abstract);
+✓ Palavras-chave;
+✓ Introdução;
+✓ Desenvolvimento do Tema;
+✓ Conclusões ou considerações finais;
+✓ Referências Bibliográficas.
