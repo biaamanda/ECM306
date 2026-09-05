@@ -1,0 +1,7 @@
+Unidade 15 - heap e fila de prioridade
+
+Unidade 16 - hashing
+
+Unidade 17 - teoria dos grafos
+
+Unidade 18 - grafos eulerianos
