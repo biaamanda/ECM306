@@ -1,0 +1,21 @@
+- grafo simples: nao pode ter loop ou duas arestas em paralelo ligando o mesmo vertice
+
+Unidade 15 - heap e fila de prioridade
+
+Unidade 16 - hashing
+
+Unidade 17 - teoria dos grafos
+
+Unidade 18 - grafos eulerianos
+
+Unidade 19 - grafos hamiltonianos
+- caminho: passa por todos os vertices 
+- ciclo: passa por todos os vertices sem repetir voltando para o mesmo ponto de partida
+
+- supergrafo
+- nao hamiltoniano maximal
+
+- eh ou nao hamiltoniano
+- eh ou nao maximal
+
+- teorema de dirac
