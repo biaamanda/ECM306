@@ -20,7 +20,7 @@ public class HeapSort {
 
     public static int tamanho;   // indice do ultimo elemento do heap
 
-    // MAX-HEAPIFY (slide 50)
+    // MAX-HEAPIFY
     public static void maxHeapify(int[] A, int pai) {
         int esq = 2 * pai + 1;
         int dir = 2 * pai + 2;
@@ -40,7 +40,7 @@ public class HeapSort {
         }
     }
 
-    // BUILD-MAX-HEAP (slide 51)
+    // BUILD-MAX-HEAP
     public static void buildMaxHeap(int[] A) {
         tamanho = A.length - 1;
         for (int pai = tamanho / 2; pai >= 0; pai--) {
@@ -48,7 +48,7 @@ public class HeapSort {
         }
     }
 
-    // HEAPSORT (slide 52)
+    // HEAPSORT
     public static void heapSort(int[] A) {
         buildMaxHeap(A);
         for (int i = tamanho; i > 0; i--) {
@@ -60,19 +60,19 @@ public class HeapSort {
         }
     }
 
-    // Mesma coisa, mas mostrando o vetor a cada extracao (para "explique o passo a passo").
-    public static void heapSortPassoAPasso(int[] A) {
-        buildMaxHeap(A);
-        System.out.println("Apos build-max-heap: " + Arrays.toString(A));
-        for (int i = tamanho; i > 0; i--) {
-            int aux = A[i];
-            A[i] = A[0];
-            A[0] = aux;
-            tamanho--;
-            maxHeapify(A, 0);
-            System.out.println("Fixou " + A[i] + " na pos " + i + ":  " + Arrays.toString(A));
-        }
-    }
+    // // Mesma coisa, mas mostrando o vetor a cada extracao (para "explique o passo a passo").
+    // public static void heapSortPassoAPasso(int[] A) {
+    //     buildMaxHeap(A);
+    //     System.out.println("Apos build-max-heap: " + Arrays.toString(A));
+    //     for (int i = tamanho; i > 0; i--) {
+    //         int aux = A[i];
+    //         A[i] = A[0];
+    //         A[0] = aux;
+    //         tamanho--;
+    //         maxHeapify(A, 0);
+    //         System.out.println("Fixou " + A[i] + " na pos " + i + ":  " + Arrays.toString(A));
+    //     }
+    // }
 
     public static void main(String[] args) {
         int[] lista = {5, 6, 2, 1, 9, 10, 12, 0, 3, 7, 14, 99, 34, 77};
@@ -86,10 +86,10 @@ public class HeapSort {
         System.out.println(Arrays.toString(lista));
         System.out.println("Ordenada? " + estaOrdenada(lista));
 
-        System.out.println("\n--- Passo a passo com outro vetor ---");
-        int[] outra = {8, 3, 7, 1, 2, 5, 6};
-        System.out.println("Original: " + Arrays.toString(outra));
-        heapSortPassoAPasso(outra);
+        // System.out.println("\n--- Passo a passo com outro vetor ---");
+        // int[] outra = {8, 3, 7, 1, 2, 5, 6};
+        // System.out.println("Original: " + Arrays.toString(outra));
+        // heapSortPassoAPasso(outra);
     }
 
     private static boolean estaOrdenada(int[] v) {

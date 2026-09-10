@@ -1,8 +1,7 @@
 /* Unidade 15 - Heaps e Filas de Prioridade
  *
  * FILA DE PRIORIDADE generica, implementada sobre um MAX-HEAP (0-indexado).
- * Sai sempre o elemento de MAIOR prioridade (maior numero associado), como
- * define o slide 45.
+ * Sai sempre o elemento de MAIOR prioridade (maior numero associado).
  *
  * Operacoes pedidas no slide 47:
  *   1) inserir(item, prioridade)
@@ -15,6 +14,7 @@
  */
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class FilaDePrioridade {
 
@@ -173,28 +173,77 @@ public class FilaDePrioridade {
     }
 
     // ---------------------------------------------------------------
-    // Teste
+    // Programa com menu (switch/case): voce digita nome + prioridade
+    // e escolhe a operacao.
     // ---------------------------------------------------------------
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         FilaDePrioridade fila = new FilaDePrioridade(10);
+        int opcao;
 
-        fila.inserir("relatorio",  2);
-        fila.inserir("backup",     5);
-        fila.inserir("email",      1);
-        fila.inserir("deploy",     8);
-        fila.inserir("limpeza",    3);
-        fila.imprimir();
+        do {
+            System.out.println("\n=== FILA DE PRIORIDADE ===");
+            System.out.println("1 - Inserir (nome + prioridade)");
+            System.out.println("2 - Remover o mais prioritario");
+            System.out.println("3 - Alterar prioridade de um nome");
+            System.out.println("4 - Mostrar a fila");
+            System.out.println("5 - Tamanho");
+            System.out.println("6 - Existem elementos de mesma prioridade?");
+            System.out.println("0 - Sair");
+            System.out.print("Opcao: ");
+            opcao = in.nextInt();
+            in.nextLine();   // consome o "enter" que sobrou do nextInt
 
-        System.out.println("\ntamanho .................. " + fila.tamanho());
-        System.out.println("mesma prioridade? ........ " + fila.existemMesmaPrioridade());
+            switch (opcao) {
+                case 1: {
+                    System.out.print("Nome: ");
+                    String nome = in.nextLine();
+                    System.out.print("Prioridade (numero, maior = atende antes): ");
+                    int prioridade = in.nextInt();
+                    in.nextLine();
+                    fila.inserir(nome, prioridade);
+                    System.out.println("Inserido -> (" + nome + ", p=" + prioridade + ")");
+                    break;
+                }
+                case 2: {
+                    if (fila.vazia()) {
+                        System.out.println("Fila vazia.");
+                    } else {
+                        System.out.println("Removido -> " + fila.removerMaisPrioritario());
+                    }
+                    break;
+                }
+                case 3: {
+                    System.out.print("Nome a alterar: ");
+                    String nome = in.nextLine();
+                    System.out.print("Nova prioridade: ");
+                    int nova = in.nextInt();
+                    in.nextLine();
+                    try {
+                        fila.alterarPrioridade(nome, nova);
+                        System.out.println("Prioridade de '" + nome + "' agora e " + nova);
+                    } catch (RuntimeException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    }
+                    break;
+                }
+                case 4:
+                    fila.imprimir();
+                    break;
+                case 5:
+                    System.out.println("tamanho = " + fila.tamanho());
+                    break;
+                case 6:
+                    System.out.println("mesma prioridade? " + fila.existemMesmaPrioridade());
+                    break;
+                case 0:
+                    System.out.println("Encerrado.");
+                    break;
+                default:
+                    System.out.println("Opcao invalida.");
+            }
+        } while (opcao != 0);
 
-        System.out.println("\nAlterando 'email' para prioridade 9:");
-        fila.alterarPrioridade("email", 9);
-        fila.imprimir();
-
-        System.out.println("\nRemovendo por ordem de prioridade:");
-        while (!fila.vazia()) {
-            System.out.println("  -> " + fila.removerMaisPrioritario());
-        }
+        in.close();
     }
 }

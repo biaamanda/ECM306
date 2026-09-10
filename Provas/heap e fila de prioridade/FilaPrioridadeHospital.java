@@ -27,8 +27,7 @@ public class FilaPrioridadeHospital {
         int prioridade;
         int senha;
 
-        Paciente(String nome, int idade, boolean gestante, boolean puerpera,
-                 int prioridade, int senha) {
+        Paciente(String nome, int idade, boolean gestante, boolean puerpera, int prioridade, int senha) {
             this.nome = nome;
             this.idade = idade;
             this.gestante = gestante;

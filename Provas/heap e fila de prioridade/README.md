@@ -13,6 +13,8 @@ Um **heap (binário)** é uma **árvore binária quase (QUASE) completa**:
 
 Normalmente implementado com um **array** (não precisa criar nós/ponteiros).
 
+Heapify: propriedade para reorganizar uma arvore desordenada em uma estrutura do tipo heap (elemento do topo/raiz eh o maior ou menor)
+
 > Heap **não** é árvore binária de busca: só existe relação pai/filho, não há
 > ordem entre irmãos nem entre subárvores esquerda e direita.
 
@@ -28,7 +30,7 @@ Normalmente implementado com um **array** (não precisa criar nós/ponteiros).
 | `LEFT(i)`   | `2 * i`     |
 | `RIGHT(i)`  | `2 * i + 1` |
 
-### Convenção 0-indexada: `A[0..n-1]` (usada no HeapSort dos slides e nos Ex02)
+### Convenção 0-indexada: `A[0..n-1]`
 
 | Operação      | Fórmula         |
 | ------------- | --------------- |
@@ -36,19 +38,17 @@ Normalmente implementado com um **array** (não precisa criar nós/ponteiros).
 | `esquerda(i)` | `2 * i + 1`     |
 | `direita(i)`  | `2 * i + 2`     |
 
-As duas aparecem na disciplina. Confira sempre qual o enunciado está usando.
-
 ---
 
 ## 3. Níveis, profundidade e altura
 
-- **Nível / profundidade** do nó `i` (1-indexado): `⌊lg i⌋` — nº de arestas da raiz até `i`.
+- **Nível / profundidade** do nó `i` (1-indexado): `⌊lg i⌋` — nº de arestas da raiz até `i`.(comeca em 0)
 - **Altura de um nó** `i`: nº de arestas do caminho **mais longo** de `i` até uma folha.
   - folhas têm altura `0`;
   - pode-se mostrar que `h(i) = ⌊lg(m / i)⌋`.
 - **Altura da árvore (raiz)**: `h = ⌊lg m⌋`.
 
-### Fórmulas de árvore binária que costumam cair junto
+### Fórmulas de árvore binária
 
 - Nº **máximo** de nós numa árvore binária de altura `h`: `2^(h+1) - 1`.
   (altura 10 → `2^11 - 1 = 2047`).
@@ -71,7 +71,7 @@ As duas aparecem na disciplina. Confira sempre qual o enunciado está usando.
 | `aumentarChave` / `alterar`     | muda a chave e sobe/desce                          | `O(lg n)`   |
 | `HEAPSORT`                      | `build` + `n-1` extrações trocando com o fim       | `O(n lg n)` |
 
-### Pseudocódigo MAX-HEAPIFY (slide 31)
+### Pseudocódigo MAX-HEAPIFY
 
 ```
 MAX-HEAPIFY(A, m, i)
@@ -87,7 +87,7 @@ MAX-HEAPIFY(A, m, i)
 10         MAX-HEAPIFY(A, m, maior)
 ```
 
-### Pseudocódigo BUILD-MAX-HEAP (slide 43)
+### Pseudocódigo BUILD-MAX-HEAP
 
 ```
 BUILD-MAX-HEAP(A, n)
@@ -100,10 +100,9 @@ BUILD-MAX-HEAP(A, n)
 ## 5. Fila de prioridade
 
 Fila em que cada elemento carrega uma **prioridade**. Na remoção sai sempre o
-elemento de **maior prioridade** (nos slides: maior número associado). É a
-aplicação clássica do heap.
+elemento de **maior prioridade** (aplicação clássica do heap).
 
-Operações (slide 47):
+Operações:
 
 1. **Inserir** com prioridade;
 2. **Remover** o elemento de mais alta prioridade;
@@ -111,22 +110,18 @@ Operações (slide 47):
 4. **Retornar** o número de elementos;
 5. **Testar** a existência de elementos de mesma prioridade.
 
-Exemplos de uso: fila de banco / laboratório (idosos, gestantes, preferenciais),
-escalonamento de processos, algoritmo de Dijkstra, HeapSort.
-
 ---
 
 ## 6. Arquivos desta pasta
 
-| Arquivo                       | Assunto                                                                                                                                                                      |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MaxHeap.java`                | Heap **1-indexado** (igual aos slides): endereçamento, `maxHeapify`, `construirMaxHeap`, `inserir`, `extrairMax`, `aumentarChave`, altura/profundidade, impressão da árvore. |
-| `MinHeap.java`                | Min-heap **0-indexado** (estilo Ex02): mesma lógica com comparações invertidas.                                                                                              |
-| `HeapSort.java`               | HeapSort completo (0-indexado, igual slides 49-52) + passo a passo.                                                                                                          |
-| `FilaDePrioridade.java`       | Fila de prioridade genérica sobre heap, com as 5 operações do slide 47.                                                                                                      |
-| `FilaPrioridadeHospital.java` | Aplicação com menu: pacientes com prioridade 0..3 (consolida os Ex02).                                                                                                       |
-| `VerificaHeap.java`           | Dado um vetor, diz se é max-heap / min-heap e qual nó viola (estilo Questão 9).                                                                                              |
-| `SimulaInsercaoHeap.java`     | Simula inserções sucessivas num heap, mostrando cada passo (estilo Questão 8).                                                                                               |
+| Arquivo | Assunto |
+| `MaxHeap.java` | Heap **1-indexado**: endereçamento, `maxHeapify`, `construirMaxHeap`, `inserir`, `extrairMax`, `aumentarChave`, altura/profundidade, impressão da árvore. |
+| `MinHeap.java` | Min-heap **0-indexado**: mesma lógica com comparações invertidas.|
+| `HeapSort.java` | HeapSort completo (0-indexado) |
+| `FilaDePrioridade.java` | Fila de prioridade genérica sobre heap, com as 5 operações |
+| `FilaPrioridadeHospital.java` | Aplicação com menu: pacientes com prioridade 0..3 |
+| `VerificaHeap.java` | Dado um vetor, diz se é max-heap / min-heap e qual nó viola |
+| `SimulaInsercaoHeap.java` | Simula inserções sucessivas num heap, mostrando cada passo |
 
 Compilar e rodar (dentro da pasta):
 
@@ -141,8 +136,6 @@ java SimulaInsercaoHeap
 ```
 
 ---
-
-## 7. Pegadinhas frequentes
 
 - **Profundidade ≠ altura.** Profundidade cresce de cima para baixo (raiz = 0);
   altura cresce de baixo para cima (folha = 0).
