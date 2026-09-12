@@ -1,10 +1,5 @@
 # Unidade 16 - Hashing
 
-Códigos-base para a prova (P3). Segue os slides do Prof. Calvetti
-(`IMT-2026-ECM306-T16-Hashing`) e os exercícios da Aula 16.
-
----
-
 ## 1. O problema (por que hashing existe)
 
 - Um **array associativo** (acesso direto) mapeia cada chave `k` direto no
@@ -42,6 +37,7 @@ h(k) = k mod m
 ```
 alpha = n / m
 ```
+
 onde `n` é o número de chaves armazenadas e `m` o tamanho da tabela. Quanto
 mais próximo de 1 (ou maior), mais colisões tendem a ocorrer.
 
@@ -74,24 +70,24 @@ sempre que `|K| > m`. Duas técnicas de tratamento:
 
 ## 5. Complexidades (resumo)
 
-| Estrutura                    | Inserir      | Buscar / Remover        |
-|-------------------------------|--------------|--------------------------|
-| Array associativo (direto)    | O(1)         | O(1)                     |
-| Tabela hash com encadeamento  | O(1)*        | pior caso O(n), média O(1+alpha) |
-| Tabela hash c/ endereç. aberto| depende de alpha (pior caso O(n) se a tabela estiver quase cheia) | idem |
+| Estrutura                      | Inserir                                                           | Buscar / Remover                 |
+| ------------------------------ | ----------------------------------------------------------------- | -------------------------------- |
+| Array associativo (direto)     | O(1)                                                              | O(1)                             |
+| Tabela hash com encadeamento   | O(1)\*                                                            | pior caso O(n), média O(1+alpha) |
+| Tabela hash c/ endereç. aberto | depende de alpha (pior caso O(n) se a tabela estiver quase cheia) | idem                             |
 
 `*` O(1) se inserir na cabeça da lista.
 
 ## 6. Arquivos desta pasta
 
-| Arquivo                             | Assunto                                                                 |
-|--------------------------------------|--------------------------------------------------------------------------|
-| `ArrayAssociativo.java`              | Acesso direto (sem hash): `A[chave]`. Mostra quando é viável e quando não é (CPF). |
-| `FuncaoHash.java`                    | Função hash `h(k) = k mod m`, detecção de colisão **sem** tratamento (dado se sobrescreve), fator de carga. |
-| `TabelaHashEncadeamento.java`        | Tabela hash com **encadeamento**: inserir/buscar/remover/mostrar + contagem de acessos (nº de comparações para achar cada chave). |
-| `TabelaHashAberto.java`              | Tabela hash com **endereçamento aberto** (sondagem linear): inserir/buscar/remover (com tombstone) + relatório de colisões. |
-| `SimulaEnderecamentoAberto.java`     | Passo a passo da sondagem linear, mostrando o array a cada inserção (estilo "trace" de prova). |
-| `VerificaTabelaHash.java`            | Dado um conjunto de chaves e `m`, calcula `h(k)` para cada uma e aponta quais colidem — útil para responder rápido "calcule o índice hash de...". |
+| Arquivo | Assunto |
+
+| `ArrayAssociativo.java` | Acesso direto (sem hash): `A[chave]`. Mostra quando é viável e quando não é (CPF). |
+| `FuncaoHash.java` | Função hash `h(k) = k mod m`, detecção de colisão **sem** tratamento (dado se sobrescreve), fator de carga. |
+| `TabelaHashEncadeamento.java` | Tabela hash com **encadeamento**: inserir/buscar/remover/mostrar + contagem de acessos (nº de comparações para achar cada chave). |
+| `TabelaHashAberto.java` | Tabela hash com **endereçamento aberto** (sondagem linear): inserir/buscar/remover (com tombstone) + relatório de colisões. |
+| `SimulaEnderecamentoAberto.java` | Passo a passo da sondagem linear, mostrando o array a cada inserção (estilo "trace" de prova). |
+| `VerificaTabelaHash.java` | Dado um conjunto de chaves e `m`, calcula `h(k)` para cada uma e aponta quais colidem — útil para responder rápido "calcule o índice hash de...". |
 
 Compilar e rodar (dentro da pasta):
 
