@@ -1,11 +1,5 @@
 # Unidade 18 - Grafos Eulerianos
 
-Códigos-base para a prova (P3). Segue os slides do Prof. Calvetti
-(`IMT-2026-ECM306-T18-GrafosEulerianos`). Pressupõe a Unidade 17 (conceitos
-de grafo, grau, Teorema do aperto de mãos) — ver `Provas/teoria dos grafos/`.
-
----
-
 ## 1. Passeio, Trilha e Caminho
 
 Dado `G = (V,E)`, um **passeio** é uma sequência finita, alternando vértices
@@ -25,20 +19,19 @@ onde cada aresta `ei` liga `vi-1` e `vi`. `k` (o nº de arestas) é o
 
 Para `u ≠ v`: **aberto**. Para `u = v`: **fechado**.
 
-| \ | `u ≠ v` (aberto) | `u = v` (fechado) |
-|---|---|---|
-| **Passeio** (repete à vontade) | Passeio aberto | Passeio fechado |
-| **Trilha** (aresta não repete) | Trilha aberta | Trilha fechada = **CIRCUITO** |
-| **Caminho** (vértice não repete) | Caminho aberto | Caminho fechado = **CICLO** |
+| \                                | `u ≠ v` (aberto) | `u = v` (fechado)             |
+| -------------------------------- | ---------------- | ----------------------------- |
+| **Passeio** (repete à vontade)   | Passeio aberto   | Passeio fechado               |
+| **Trilha** (aresta não repete)   | Trilha aberta    | Trilha fechada = **CIRCUITO** |
+| **Caminho** (vértice não repete) | Caminho aberto   | Caminho fechado = **CICLO**   |
 
-Relações (slide 24):
+Relações :
 
 - Todo **caminho** é uma **trilha**; toda **trilha** é um **passeio**.
 - Nem toda trilha é caminho; nem todo passeio é trilha.
 - **Teorema:** todo passeio `u-v` **contém** um caminho `u-v` (eliminando
   repetições sobra sempre um caminho por baixo).
 
-> Pegadinha (ver `Aula18/Simulado_03_Resolucao.md`, questão 14-F): a
 > definição formal de "caminho fechado = ciclo" do slide não exige um
 > tamanho mínimo, mas muitos livros só chamam de **ciclo** um caminho
 > fechado com **3 ou mais vértices distintos** (duas arestas paralelas ou
@@ -52,8 +45,7 @@ Relações (slide 24):
 - **Grafo Euleriano** (ou **Grafo de Euler**): tem uma trilha Euleriana
   **fechada**, ou seja, um **circuito** que usa todas as arestas.
 - Se só existe uma trilha Euleriana **aberta** (não fechada), o grafo é
-  chamado **semi-euleriano** (termo usado em `Aula18/Simulado_03_Resolucao.md`,
-  questão 15).
+  chamado **semi-euleriano**
 
 ### O problema das pontes de Königsberg
 
@@ -95,13 +87,12 @@ ficando com grau ímpar.
 
 ## 5. Arquivos desta pasta
 
-| Arquivo                     | Assunto                                                                 |
-|-------------------------------|--------------------------------------------------------------------------|
-| `Grafo.java`                  | Multigrafo com **arestas rotuladas** (`e1`, `e2`, ...), igual à notação dos slides: `grau`, `eConexo` (BFS), `verticesGrauImpar`, `vizinhanca`. |
-| `PasseioTrilhaCaminho.java`   | Classifica uma sequência `v0 e1 v1 e2 v2 ...` como passeio/trilha/caminho, aberto/fechado, circuito/ciclo. Testado com os passeios W1-W4 dos slides. |
-| `GrafoEuleriano.java`         | Implementa o Teorema de Euler (`eEuleriano`, `eSemiEuleriano`) + verificação de que uma trilha dada realmente usa cada aresta uma vez. Testado com os grafos G1-G4 dos slides (caminho semi-euleriano, grade euleriana, `K5`, `K3,3`). |
-| `PontesDeKonigsberg.java`     | O problema original: modela as 7 pontes e mostra por que não há solução. |
-| `VerificaEuleriano.java`      | Roda o Teorema de Euler nos grafos das Questões 2 e 15 do `Aula18/Simulado_03_Resolucao.md`, conferindo os resultados (semi-euleriano e não-euleriano). |
+| Arquivo | Assunto |
+| `Grafo.java` | Multigrafo com **arestas rotuladas** (`e1`, `e2`, ...), igual à notação dos slides: `grau`, `eConexo` (BFS), `verticesGrauImpar`, `vizinhanca`. |
+| `PasseioTrilhaCaminho.java` | Classifica uma sequência `v0 e1 v1 e2 v2 ...` como passeio/trilha/caminho, aberto/fechado, circuito/ciclo. |
+| `GrafoEuleriano.java` | Implementa o Teorema de Euler (`eEuleriano`, `eSemiEuleriano`) + verificação de que uma trilha dada realmente usa cada aresta uma vez. Testado com os grafos G1-G4 dos slides (caminho semi-euleriano, grade euleriana, `K5`, `K3,3`). |
+| `PontesDeKonigsberg.java` | modela as 7 pontes e mostra por que não há solução. |
+| `VerificaEuleriano.java` | Roda o Teorema de Euler nos grafos das Questões 2 e 15 do `Aula18/Simulado_03_Resolucao.md`, conferindo os resultados (semi-euleriano e não-euleriano). |
 
 Compilar e rodar (dentro da pasta):
 

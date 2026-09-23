@@ -1,15 +1,5 @@
 # Unidade 17 - Introdução à Teoria dos Grafos
 
-Códigos-base para a prova (P3). Segue os slides do Prof. Calvetti
-(`IMT-2026-ECM306-T17-Introdução à Teoria dos Grafos`) — unidade de
-**conceitos iniciais** (definições, grau, isomorfismo, grafos completos/
-bipartidos, subgrafo). Não entra ainda caminhos/conectividade/euleriano
-(isso é a Unidade 18) nem representação em matriz/lista de adjacência
-formal — os códigos aqui usam uma representação simples (lista de arestas)
-só para poder calcular tudo isso na mão/no código.
-
----
-
 ## 1. Definição
 
 Um grafo é `G = (V, E)`:
@@ -60,9 +50,6 @@ Em qualquer grafo, **o número de vértices de grau ímpar é sempre par**.
 pares já somam um número par, os ímpares têm que fechar em quantidade par
 para a soma continuar par.)
 
-> Pegadinha: isso **não** diz nada sobre a quantidade de vértices **pares**
-> — essa pode ser par ou ímpar.
-
 ---
 
 ## 3. Grafo regular
@@ -105,8 +92,8 @@ Todo vértice de `X` (`|X|=m`) ligado a **todo** vértice de `Y` (`|Y|=n`).
 vértices, o mesmo número de arestas, e a mesma sequência de graus (mesmo
 número de vértices de cada grau).
 
-> Pegadinha grande: essas condições são **necessárias, mas NÃO
-> suficientes**. Dois grafos podem ter os três invariantes iguais e ainda
+> essas condições são **necessárias, mas NÃO suficientes**.
+> Dois grafos podem ter os três invariantes iguais e ainda
 > **não** serem isomorfos (contraexemplo clássico do slide: dois grafos
 > com sequência `(1,1,1,2,2,3)`, mas em um deles o vértice de grau 1
 > adjacente ao de grau 3 tem 2 "vizinhos gêmeos" de grau 1, e no outro só
@@ -126,14 +113,13 @@ vértices também é um subgrafo.
 
 ## 8. Arquivos desta pasta
 
-| Arquivo                        | Assunto                                                                 |
-|---------------------------------|--------------------------------------------------------------------------|
-| `Grafo.java`                    | Classe base (lista de arestas, aceita laço/paralelas): grau, soma de graus, sequência de graus, Teorema 1, Teorema 2, `N(v)`, adjacência de vértices/arestas, "é simples?", "é k-regular?". |
-| `VerificaGrafo.java`            | Roda os Exercícios 1 a 6 do slide (conta arestas, soma de graus, vértices ímpares) — mesmos grafos do `Aula17/Grafos_Exercicios_Resolucao.md`, conferindo os resultados automaticamente. |
-| `GrafoCompletoRegular.java`     | Gera `Kn`, confere `n(n-1)/2` arestas e regularidade `(n-1)`; testa se um grafo qualquer é k-regular. |
-| `GrafoBipartido.java`           | Testa se um grafo é bipartido (coloração com 2 cores via BFS) e gera `Km,n` (conferindo `m*n` arestas). |
-| `VerificaIsomorfismo.java`      | Confere os invariantes necessários (nº vértices, nº arestas, sequência de graus) entre dois grafos — e mostra o contraexemplo clássico onde os invariantes batem mas os grafos não são isomorfos. |
-| `Subgrafo.java`                 | Verifica se `G2` é subgrafo de `G1` (`V2 ⊆ V1` e `E2 ⊆ E1`). |
+| Arquivo | Assunto |
+| `Grafo.java` | Classe base (lista de arestas, aceita laço/paralelas): grau, soma de graus, sequência de graus, Teorema 1, Teorema 2, `N(v)`, adjacência de vértices/arestas, "é simples?", "é k-regular?". |
+| `VerificaGrafo.java` | Roda os Exercícios |
+| `GrafoCompletoRegular.java` | Gera `Kn`, confere `n(n-1)/2` arestas e regularidade `(n-1)`; testa se um grafo qualquer é k-regular. |
+| `GrafoBipartido.java` | Testa se um grafo é bipartido (coloração com 2 cores via BFS) e gera `Km,n` (conferindo `m*n` arestas). |
+| `VerificaIsomorfismo.java` | Confere os invariantes necessários (nº vértices, nº arestas, sequência de graus) entre dois grafos — e mostra o contraexemplo clássico onde os invariantes batem mas os grafos não são isomorfos. |
+| `Subgrafo.java` | Verifica se `G2` é subgrafo de `G1` (`V2 ⊆ V1` e `E2 ⊆ E1`). |
 
 Compilar e rodar (dentro da pasta):
 

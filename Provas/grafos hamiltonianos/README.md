@@ -1,12 +1,5 @@
 # Unidade 19 - Grafos Hamiltonianos
 
-Códigos-base para a prova (P3). Segue os slides do Prof. Calvetti
-(`IMT-2026-ECM306-T19-GrafosHamiltonianos`). Pressupõe a Unidade 17
-(conceitos de grafo, grau, subgrafo, supergrafo) e a Unidade 18 (passeio,
-trilha, caminho, ciclo) — ver as outras pastas de `Provas/`.
-
----
-
 ## 1. Definições
 
 - **Caminho Hamiltoniano** em `G`: um **caminho** (não repete vértice) que
@@ -15,10 +8,9 @@ trilha, caminho, ciclo) — ver as outras pastas de `Provas/`.
   vértice de `G`.
 - **Grafo Hamiltoniano**: um grafo `G` que **tem** um ciclo Hamiltoniano.
 
-> Diferença chave para a Unidade 18: Euleriano é sobre usar **toda aresta**
-> uma vez; Hamiltoniano é sobre visitar **todo vértice** uma vez. São
-> propriedades independentes — um grafo pode ser as duas coisas, nenhuma,
-> ou só uma delas.
+> Euleriano é sobre usar **toda aresta** uma vez; Hamiltoniano é sobre visitar
+> **todo vértice** uma vez. São propriedades independentes — um grafo pode ser
+> as duas coisas, nenhuma, ou só uma delas.
 
 **Observação (supergrafo):** se `G` é Hamiltoniano e `G*` é um supergrafo
 de `G` (mesmos vértices, arestas de `G` mais outras), então `G*` também é
@@ -102,14 +94,13 @@ Ver `CaixeiroViajante.java` para uma solução **exata por força bruta**
 
 ## 7. Arquivos desta pasta
 
-| Arquivo                             | Assunto                                                                 |
-|---------------------------------------|--------------------------------------------------------------------------|
-| `Grafo.java`                          | Grafo simples (sem laço/paralela): grau, vizinhança, adjacência, cópia. |
-| `CicloCaminhoHamiltoniano.java`       | Busca por força bruta (permutações) de caminho/ciclo Hamiltoniano. Testado nos grafos G1-G5 dos slides (exemplos 1-5). |
-| `TeoremaDiracOre.java`                | Confere as condições de Dirac e de Ore. Testado com `K3,3` (Dirac ok), o ciclo `C5` (nenhum dos dois vale, mas é Hamiltoniano) e um exemplo de 5 vértices (Ore ok). |
-| `GrafoNaoHamiltonianoMaximal.java`    | Confere se um grafo não-Hamiltoniano é "maximal" (toda aresta que falta, se adicionada, cria um grafo Hamiltoniano). |
-| `FechamentoDeGrafo.java`              | Calcula `c(G)` e verifica o Teorema de Bondy. Testado com um grafo de 6 vértices cujo fechamento vira `K6` em 7 passos. |
-| `CaixeiroViajante.java`               | TSP exato por força bruta num grafo completo ponderado pequeno. |
+| Arquivo | Assunto |
+| `Grafo.java` | Grafo simples (sem laço/paralela): grau, vizinhança, adjacência, cópia. |
+| `CicloCaminhoHamiltoniano.java` | Busca por força bruta (permutações) de caminho/ciclo Hamiltoniano. |
+| `TeoremaDiracOre.java` | Confere as condições de Dirac e de Ore. Testado com `K3,3` (Dirac ok), o ciclo `C5` (nenhum dos dois vale, mas é Hamiltoniano) e um exemplo de 5 vértices (Ore ok). |
+| `GrafoNaoHamiltonianoMaximal.java` | Confere se um grafo não-Hamiltoniano é "maximal" (toda aresta que falta, se adicionada, cria um grafo Hamiltoniano). |
+| `FechamentoDeGrafo.java` | Calcula `c(G)` e verifica o Teorema de Bondy. |
+| `CaixeiroViajante.java` | TSP exato por força bruta num grafo completo ponderado pequeno. |
 
 Compilar e rodar (dentro da pasta):
 
