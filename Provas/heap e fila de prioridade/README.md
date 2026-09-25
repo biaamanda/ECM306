@@ -22,7 +22,7 @@ Heapify: propriedade para reorganizar uma arvore desordenada em uma estrutura do
 
 ## 2. Representação em array
 
-### Convenção dos slides: `A[1..m]` (índice 0 não usado)
+### Convenção: `A[1..m]` (índice 0 não usado)
 
 | Operação    | Fórmula     |
 | ----------- | ----------- |
@@ -61,15 +61,14 @@ Heapify: propriedade para reorganizar uma arvore desordenada em uma estrutura do
 
 ## 4. Operações e complexidades
 
-| Operação                        | O que faz                                          | Custo       |
-| ------------------------------- | -------------------------------------------------- | ----------- |
-| `MAX-HEAPIFY(A, m, i)`          | desce `A[i]` até restaurar a propriedade (peneira) | `O(lg m)`   |
-| `BUILD-MAX-HEAP(A, n)`          | `heapify` de `⌊n/2⌋` até `1`                       | `O(n)`      |
-| `inserir` (sobe / sift-up)      | põe no fim e sobe trocando com o pai               | `O(lg n)`   |
-| `extrairMax` / `remover` (raiz) | tira a raiz, traz o último, `heapify(1)`           | `O(lg n)`   |
-| `maximo` / `minimo`             | lê a raiz                                          | `O(1)`      |
-| `aumentarChave` / `alterar`     | muda a chave e sobe/desce                          | `O(lg n)`   |
-| `HEAPSORT`                      | `build` + `n-1` extrações trocando com o fim       | `O(n lg n)` |
+| Operação | O que faz mmm | Custo |
+| `MAX-HEAPIFY(A, m, i)` | desce `A[i]` até restaurar a propriedade (peneira) | `O(lg m)` |
+| `BUILD-MAX-HEAP(A, n)` | `heapify` de `⌊n/2⌋` até `1` | `O(n)` |
+| `inserir` (sobe / sift-up) | põe no fim e sobe trocando com o pai | `O(lg n)` |
+| `extrairMax` / `remover` (raiz) | tira a raiz, traz o último, `heapify(1)` | `O(lg n)` |
+| `maximo` / `minimo` | lê a raiz | `O(1)` |
+| `aumentarChave` / `alterar` | muda a chave e sobe/desce | `O(lg n)` |
+| `HEAPSORT` | `build` + `n-1` extrações trocando com o fim | `O(n lg n)` |
 
 ### Pseudocódigo MAX-HEAPIFY
 

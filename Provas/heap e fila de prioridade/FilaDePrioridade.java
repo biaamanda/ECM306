@@ -3,7 +3,6 @@
  * FILA DE PRIORIDADE generica, implementada sobre um MAX-HEAP (0-indexado).
  * Sai sempre o elemento de MAIOR prioridade (maior numero associado).
  *
- * Operacoes pedidas no slide 47:
  *   1) inserir(item, prioridade)
  *   2) removerMaisPrioritario()
  *   3) alterarPrioridade(item, novaPrioridade)

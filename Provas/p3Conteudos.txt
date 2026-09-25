@@ -12,10 +12,30 @@ Unidade 19 - grafos hamiltonianos
 - caminho: passa por todos os vertices 
 - ciclo: passa por todos os vertices sem repetir voltando para o mesmo ponto de partida
 
-- supergrafo
-- nao hamiltoniano maximal
 
-- eh ou nao hamiltoniano
-- eh ou nao maximal
+componente
+public class Componente - get
 
-- teorema de dirac
+tabelaHash
+public Componente buscar(int codigo) {
+
+        int indiceInicial = hash(codigo);
+
+        for (int i = 0; i < TAMANHO; i++) {
+            int indice = (indiceInicial + i) % TAMANHO;
+
+            if (tabela[indice] == null) {
+                return null;
+            }
+            if (tabela[indice].getCodigo() == codigo) {
+                return tabela[indice];
+            }
+        }
+
+        return null;
+    }
+
+teste
+tabela.inserir(new Componente(22, "Resistor"));
+Componente c46 = tabela.buscar(46);
+        System.out.println(c46 != null ? "Encontrado -> " + c46 : "Nao encontrado.");
