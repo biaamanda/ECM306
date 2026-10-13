@@ -59,7 +59,7 @@ deg(v11) = 2
 G não é regular, pois possui vértices com graus diferentes
 (ex.: deg(v1) = 2 ≠ deg(v6) = 4).
 
-## Questão 9
+## Questão 9 ✓
 
 - Grafo **cúbico**: grafo 3-regular (todo vértice tem grau 3).
 
@@ -90,7 +90,7 @@ graph LR
   u3 --- w3
 ```
 
-## Questão 10
+## Questão 10 ✓
 
 - **Lema do aperto de mãos**: `Σ deg(v) = 2·|E|`. Logo a soma dos graus é
   sempre **par** (e o número de vértices de grau ímpar também é par).
@@ -99,7 +99,7 @@ graph LR
 **Não.** Σ deg(v) = 15 · 5 = 75, que é **ímpar**. Mas Σ deg(v) = 2·|E| é sempre
 par, então esse grafo não pode existir (teria 75/2 = 37,5 arestas).
 
-## Questão 11
+## Questão 11 ✓
 
 - Mesmo raciocínio da questão 10: a soma dos graus precisa ser par
   (`Σ deg(v) = 2·|E|`) e `deg(v) ≤ n − 1`.
@@ -129,7 +129,7 @@ graph LR
   v5 --- u5
 ```
 
-## Questão 12
+## Questão 12 ✓
 
 - **Grafo de intersecção**: um vértice para cada conjunto `Ai`; existe aresta
   entre `Ai` e `Aj` (i ≠ j) se e somente se `Ai ∩ Aj ≠ ∅`.
@@ -162,7 +162,7 @@ graph LR
   A4 --- A5
 ```
 
-## Questão 13
+## Questão 13 ✓
 
 - Ver definição de isomorfismo na questão 15. Se dois grafos são isomorfos,
   eles têm obrigatoriamente o **mesmo número de vértices**.
@@ -171,7 +171,7 @@ graph LR
 entre conjuntos de mesmo tamanho. Como |V1| = 10 ≠ 11 = |V2|, G1 e G2 não podem
 ser isomorfos.
 
-## Questão 14
+## Questão 14 ✓
 
 - Ver definição de isomorfismo na questão 15. Se dois grafos são isomorfos,
   eles têm obrigatoriamente o **mesmo número de arestas**.
@@ -213,7 +213,7 @@ Sequência de graus: (4, 4, 4, 4, 2, 2)
 
 G1 e G2 têm o mesmo número de vértices (6) e de arestas (10), mas sequências de graus diferentes. Como a sequência de graus é um invariante, G1 e G2 não são isomorfos.
 
-## Questão 16
+## Questão 16 ✓
 
 - **Grafo completo `Kn`**: grafo simples com `n` vértices em que todo par de
   vértices distintos é ligado por uma aresta.
@@ -222,14 +222,14 @@ G1 e G2 têm o mesmo número de vértices (6) e de arestas (10), mas sequências
 |E(K7)| = 7 · 6 / 2 = **21 arestas**, pois cada um dos 7 vértices se liga aos
 outros 6, e cada aresta é contada duas vezes (uma em cada extremidade).
 
-## Questão 17
+## Questão 17 ✓
 
 - Ver questão 16: `|E(Kn)| = n(n − 1) / 2`.
 
 |E(K10)| = 10 · 9 / 2 = **45 arestas**, pois cada um dos 10 vértices se liga aos
 outros 9, e cada aresta é contada duas vezes.
 
-## Questão 18
+## Questão 18 ✓
 
 - **Grafo bipartido completo `Km,n`**: vértices divididos em dois grupos
   `X` (com `m` vértices) e `Y` (com `n` vértices); **cada** vértice de `X` é
@@ -256,7 +256,7 @@ graph LR
   x3 --- y5
 ```
 
-## Questão 19
+## Questão 19 ✓
 
 - Ver questão 18 (`Km,n`).
 
@@ -285,7 +285,7 @@ graph LR
   extremidade em `X` e a outra em `Y` (nunca liga dois vértices do mesmo
   lado). Um grafo é bipartido se e somente se não tem ciclo de tamanho ímpar.
 
-## Questão 21
+## Questão 21 ✓
 
 > Obs.: o enunciado diz "questão 21", mas se refere ao grafo G da questão 20.
 
@@ -311,7 +311,7 @@ graph LR
   v5 --- v6
 ```
 
-## Questão 22
+## Questão 22 ✓
 
 > Obs.: o grafo G é o da questão 20.
 
@@ -342,7 +342,7 @@ graph LR
 - **Ciclo**: caminho fechado (só o vértice inicial = final se repete).
   Um laço (aresta de um vértice nele mesmo) já forma um ciclo.
 
-## Questão 24
+## Questão 24 ✓
 
 - **Grafo Euleriano**: possui um **circuito Euleriano** (circuito que passa
   por **todas as arestas** exatamente uma vez).
@@ -351,33 +351,90 @@ graph LR
 - (Se exatamente 2 vértices têm grau ímpar, há uma **trilha** Euleriana
   entre eles, mas o grafo não é Euleriano.)
 
-## Questão 25
+Graus: deg(v1) = 2, deg(v2) = 3, deg(v3) = 3, deg(v4) = 3, deg(v5) = 3, deg(v6) = 2.
+
+**Não é Euleriano.** G é conexo, mas v2, v3, v4 e v5 têm grau ímpar. Pelo
+Teorema de Euler, todos os vértices precisariam ter grau par.
+
+## Questão 25 ✓
 
 - Ver questão 24 (Teorema de Euler: conexo + todos os graus pares).
 
-## Questão 26
+Nomeando os vértices pela posição na figura (linha / coluna):
+
+```
+a   b
+c   d   e
+f   g   h
+```
+
+E = {ab, ad, bd, be, cd, cf, dg, eg, eh, fg, gh} (11 arestas)
+
+Graus: a = 2, **b = 3**, c = 2, d = 4, **e = 3**, f = 2, g = 4, h = 2.
+
+**Não é Euleriano.** Os vértices b e e têm grau ímpar. Como são exatamente
+2 vértices ímpares, G tem uma **trilha** Euleriana (de b até e), mas não um
+circuito Euleriano.
+
+## Questão 26 ✓
 
 - Ver questão 24 (Teorema de Euler: conexo + todos os graus pares).
 
-## Questão 27
+O grafo é o **K3,3**: cada um dos 3 vértices da esquerda está ligado aos 3 da
+direita (9 arestas).
+
+**Não é Euleriano.** Todos os 6 vértices têm grau 3 (ímpar), e o Teorema de
+Euler exige que todos os graus sejam pares.
+
+## Questão 27 ✓
 
 - Ver questão 24 (Teorema de Euler: conexo + todos os graus pares).
 
-## Questão 28
+Nomeando os vértices pela posição na figura:
+
+```
+a   b   c
+d   e   f
+g   h   i
+```
+
+E = {ab, bc, ad, bd, be, ce, de, ef, eg, dh, eh, fi, gh, hi} (14 arestas)
+
+Graus: a = 2, b = 4, c = 2, d = 4, e = 6, f = 2, g = 2, h = 4, i = 2
+(Σ = 28 = 2 · 14 ✓).
+
+**É Euleriano.** G é conexo e todos os vértices têm grau par (Teorema de Euler).
+Um circuito Euleriano possível:
+
+a → b → c → e → b → d → e → f → i → h → e → g → h → d → a
+
+Ele usa as 14 arestas, cada uma exatamente uma vez.
+
+## Questão 28 ✓
 
 - **Grafo Hamiltoniano**: possui um **ciclo Hamiltoniano** (ciclo que passa
   por **todos os vértices** exatamente uma vez e volta ao início).
 - Não há um critério simples como o de Euler; normalmente se **exibe** o
   ciclo, ou se usa Dirac/Ore (questões 45 e 46).
 
-## Questão 29
+E = {v1v2, v1v4, v2v3, v2v5, v3v4, v3v5, v4v5}
+
+**É Hamiltoniano.** Basta exibir um ciclo que passa por todos os vértices
+exatamente uma vez:
+
+v1 → v2 → v5 → v3 → v4 → v1
+
+(Obs.: Dirac não se aplica aqui, pois deg(v1) = 2 < 5/2. Mesmo assim, G é
+Hamiltoniano, já que o ciclo foi exibido.)
+
+## Questão 29 ✓
 
 - Ver questão 16: `Kn` tem `n` vértices e `n(n − 1) / 2` arestas.
 
 K8 tem **8 vértices** e 8 · 7 / 2 = **28 arestas**, pois todo par de vértices
 distintos é ligado por uma aresta.
 
-## Questão 30
+## Questão 30 ✓
 
 - `Km,n` (questão 18): tem `m + n` vértices e `m · n` arestas
   (cada um dos `m` vértices liga-se aos `n` do outro lado).
@@ -385,7 +442,7 @@ distintos é ligado por uma aresta.
 K6,3 tem 6 + 3 = **9 vértices** e 6 · 3 = **18 arestas**, pois cada um dos 6
 vértices de um lado se liga a cada um dos 3 do outro.
 
-## Questão 31
+## Questão 31 ✓
 
 - **Ciclo `Cn`** (n ≥ 3): `n` vértices `v1, v2, …, vn` ligados em anel
   (`v1–v2, v2–v3, …, vn–v1`). Tem `n` vértices e `n` arestas.
@@ -393,7 +450,7 @@ vértices de um lado se liga a cada um dos 3 do outro.
 C5 tem **5 vértices** e **5 arestas** (v1v2, v2v3, v3v4, v4v5, v5v1). Cada
 vértice tem grau 2, e Σ deg = 5 · 2 = 10 = 2 · 5 arestas.
 
-## Questão 32
+## Questão 32 ✓
 
 - **Cubo `Qn`**: vértices são as sequências binárias de `n` bits; dois
   vértices são adjacentes se diferem em **exatamente 1 bit**.
@@ -403,7 +460,7 @@ vértice tem grau 2, e Σ deg = 5 · 2 = 10 = 2 · 5 arestas.
 Q5 tem 2⁵ = **32 vértices** (sequências de 5 bits). Cada vértice tem grau 5,
 logo |E| = 32 · 5 / 2 = **80 arestas**.
 
-## Questão 33
+## Questão 33 ✓
 
 - **Roda `Wn`**: um ciclo `Cn` + **1 vértice central** ligado a todos os `n`
   vértices do ciclo. Tem `n + 1` vértices e `2n` arestas
@@ -414,7 +471,7 @@ ligando o centro aos vértices do ciclo).
 Conferindo: o centro tem grau 4 e os 4 vértices do ciclo têm grau 3, então
 Σ deg = 4 + 4 · 3 = 16 = 2 · 8.
 
-## Questão 34
+## Questão 34 ✓
 
 - **Lema do aperto de mãos**: `Σ deg(v) = 2·|E|` → `|E| = Σ deg(v) / 2`.
 - Se o grafo não precisa ser simples, pode usar laços/arestas paralelas para
@@ -438,7 +495,7 @@ graph LR
   v4 --- v5
 ```
 
-## Questão 35
+## Questão 35 ✓
 
 - Condições necessárias para um grafo **simples** com `n` vértices:
   1. A soma dos graus é **par** (aperto de mãos).
@@ -466,7 +523,7 @@ graph LR
   v2 --- v5
 ```
 
-## Questão 36
+## Questão 36 ✓
 
 - Ver questão 35 (soma par, grau ≤ n − 1, tentar desenhar).
 
@@ -477,7 +534,7 @@ graph LR
 - Além disso, em um grafo simples com 5 vértices o grau máximo é 4, e há um
   vértice com grau 5.
 
-## Questão 37
+## Questão 37 ✓
 
 - Ver questão 35 (soma par, grau ≤ n − 1, tentar desenhar).
 - Dica: se um vértice tem grau `n − 1`, ele é vizinho de **todos** os outros,
@@ -488,14 +545,14 @@ vértices de grau 4 = n − 1. Cada um deles é vizinho de todos os outros, ent�
 todo vértice restante tem grau ≥ 2. Isso contradiz a existência de um vértice
 de grau 1.
 
-## Questão 38
+## Questão 38 ✓
 
 - Ver questão 35 (soma par, grau ≤ n − 1, tentar desenhar).
 
 **Não existe.** A soma dos graus é 3 + 4 + 3 + 4 + 3 = 17, que é **ímpar**,
 contrariando `Σ deg(v) = 2·|E|`.
 
-## Questão 39
+## Questão 39 ✓
 
 - **Subgrafo** (questão 22): escolha um subconjunto **não vazio** de vértices
   e, depois, um subconjunto das arestas que têm **as duas extremidades**
@@ -511,7 +568,7 @@ K3: V = {a, b, c}, E = {ab, ac, bc}.
 
 Total: 3 + 6 + 8 = **17 subgrafos**.
 
-## Questão 40
+## Questão 40 ✓
 
 - Ver questões 22 e 39. Organize por número de vértices (1, 2, 3, 4) e,
   para cada escolha de vértices, liste todas as escolhas de arestas válidas.
@@ -582,7 +639,7 @@ graph LR
 - Em `Qn`, cada vértice tem como vizinhos as sequências que diferem em 1 bit
   (há `n` bits para trocar).
 
-## Questão 45
+## Questão 45 ✓
 
 - **Teorema de Dirac**: se `G` é simples com `n ≥ 3` vértices e
   `deg(v) ≥ n/2` para **todo** vértice `v`, então `G` é Hamiltoniano.
@@ -591,12 +648,26 @@ graph LR
 - **Condição necessária**: se o resultado ocorre, ela tem que valer.
 - Dica: pense em `Cn` com n grande (é Hamiltoniano? satisfaz Dirac?).
 
-## Questão 46
+**Suficiente, mas não necessária.** Se todo vértice tem grau ≥ n/2, G é
+Hamiltoniano. A recíproca, porém, não vale.
+
+Contraexemplo: **C6** é Hamiltoniano (o próprio ciclo passa por todos os
+vértices), mas cada vértice tem grau 2 < 6/2 = 3. Ou seja, G é Hamiltoniano
+sem satisfazer a condição de Dirac.
+
+## Questão 46 ✓
 
 - **Teorema de Ore**: se `G` é simples com `n ≥ 3` vértices e
   `deg(u) + deg(v) ≥ n` para **todo par de vértices não adjacentes** `u, v`,
   então `G` é Hamiltoniano.
 - Ver na questão 45 a diferença entre suficiente e necessária.
+
+**Suficiente, mas não necessária.** Se a condição de Ore vale, G é Hamiltoniano.
+A recíproca, porém, não vale.
+
+Contraexemplo: **C5** é Hamiltoniano, mas dois vértices não adjacentes têm
+deg(u) + deg(v) = 2 + 2 = 4 < 5 = n. Ou seja, G é Hamiltoniano sem satisfazer
+a condição de Ore.
 
 ## Questão 47 ✓
 
