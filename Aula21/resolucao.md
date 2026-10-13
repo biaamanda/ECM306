@@ -96,10 +96,38 @@ graph LR
   sempre **par** (e o número de vértices de grau ímpar também é par).
 - Em um grafo simples com `n` vértices, o grau máximo é `n − 1`.
 
+**Não.** Σ deg(v) = 15 · 5 = 75, que é **ímpar**. Mas Σ deg(v) = 2·|E| é sempre
+par, então esse grafo não pode existir (teria 75/2 = 37,5 arestas).
+
 ## Questão 11
 
 - Mesmo raciocínio da questão 10: a soma dos graus precisa ser par
   (`Σ deg(v) = 2·|E|`) e `deg(v) ≤ n − 1`.
+
+**Sim.** Σ deg(v) = 10 · 3 = 30 (par) → |E| = 30 / 2 = 15 arestas, e
+3 ≤ n − 1 = 9.
+
+Exemplo: **prisma pentagonal**. São dois ciclos C5 (v1..v5 e u1..u5) com as
+arestas vi–ui ligando os dois (5 + 5 + 5 = 15 arestas). Todo vértice tem grau 3.
+
+```mermaid
+graph LR
+  v1 --- v2
+  v2 --- v3
+  v3 --- v4
+  v4 --- v5
+  v5 --- v1
+  u1 --- u2
+  u2 --- u3
+  u3 --- u4
+  u4 --- u5
+  u5 --- u1
+  v1 --- u1
+  v2 --- u2
+  v3 --- u3
+  v4 --- u4
+  v5 --- u5
+```
 
 ## Questão 12
 
@@ -139,10 +167,18 @@ graph LR
 - Ver definição de isomorfismo na questão 15. Se dois grafos são isomorfos,
   eles têm obrigatoriamente o **mesmo número de vértices**.
 
+**Não.** Um isomorfismo exige uma bijeção f: V1 → V2, e só existe bijeção
+entre conjuntos de mesmo tamanho. Como |V1| = 10 ≠ 11 = |V2|, G1 e G2 não podem
+ser isomorfos.
+
 ## Questão 14
 
 - Ver definição de isomorfismo na questão 15. Se dois grafos são isomorfos,
   eles têm obrigatoriamente o **mesmo número de arestas**.
+
+**Não.** Um isomorfismo exige uma bijeção g: E1 → E2, e só existe bijeção
+entre conjuntos de mesmo tamanho. Como |E1| = 5 ≠ 6 = |E2|, G1 e G2 não podem
+ser isomorfos.
 
 ## Questão 15 ✓
 
@@ -183,9 +219,15 @@ G1 e G2 têm o mesmo número de vértices (6) e de arestas (10), mas sequências
   vértices distintos é ligado por uma aresta.
   Número de arestas: `|E| = n(n − 1) / 2` (= C(n, 2), número de pares).
 
+|E(K7)| = 7 · 6 / 2 = **21 arestas**, pois cada um dos 7 vértices se liga aos
+outros 6, e cada aresta é contada duas vezes (uma em cada extremidade).
+
 ## Questão 17
 
 - Ver questão 16: `|E(Kn)| = n(n − 1) / 2`.
+
+|E(K10)| = 10 · 9 / 2 = **45 arestas**, pois cada um dos 10 vértices se liga aos
+outros 9, e cada aresta é contada duas vezes.
 
 ## Questão 18
 
@@ -332,15 +374,24 @@ graph LR
 
 - Ver questão 16: `Kn` tem `n` vértices e `n(n − 1) / 2` arestas.
 
+K8 tem **8 vértices** e 8 · 7 / 2 = **28 arestas**, pois todo par de vértices
+distintos é ligado por uma aresta.
+
 ## Questão 30
 
 - `Km,n` (questão 18): tem `m + n` vértices e `m · n` arestas
   (cada um dos `m` vértices liga-se aos `n` do outro lado).
 
+K6,3 tem 6 + 3 = **9 vértices** e 6 · 3 = **18 arestas**, pois cada um dos 6
+vértices de um lado se liga a cada um dos 3 do outro.
+
 ## Questão 31
 
 - **Ciclo `Cn`** (n ≥ 3): `n` vértices `v1, v2, …, vn` ligados em anel
   (`v1–v2, v2–v3, …, vn–v1`). Tem `n` vértices e `n` arestas.
+
+C5 tem **5 vértices** e **5 arestas** (v1v2, v2v3, v3v4, v4v5, v5v1). Cada
+vértice tem grau 2, e Σ deg = 5 · 2 = 10 = 2 · 5 arestas.
 
 ## Questão 32
 
@@ -349,11 +400,19 @@ graph LR
   Tem `2ⁿ` vértices; cada vértice tem grau `n`, logo
   `|E| = n · 2ⁿ / 2 = n · 2ⁿ⁻¹` arestas.
 
+Q5 tem 2⁵ = **32 vértices** (sequências de 5 bits). Cada vértice tem grau 5,
+logo |E| = 32 · 5 / 2 = **80 arestas**.
+
 ## Questão 33
 
 - **Roda `Wn`**: um ciclo `Cn` + **1 vértice central** ligado a todos os `n`
   vértices do ciclo. Tem `n + 1` vértices e `2n` arestas
   (`n` do ciclo + `n` "raios").
+
+W4 tem 4 + 1 = **5 vértices** e 4 + 4 = **8 arestas** (4 do ciclo C4 + 4 raios
+ligando o centro aos vértices do ciclo).
+Conferindo: o centro tem grau 4 e os 4 vértices do ciclo têm grau 3, então
+Σ deg = 4 + 4 · 3 = 16 = 2 · 8.
 
 ## Questão 34
 
@@ -441,6 +500,16 @@ contrariando `Σ deg(v) = 2·|E|`.
 - **Subgrafo** (questão 22): escolha um subconjunto **não vazio** de vértices
   e, depois, um subconjunto das arestas que têm **as duas extremidades**
   entre os vértices escolhidos. Conte todas as combinações possíveis.
+
+K3: V = {a, b, c}, E = {ab, ac, bc}.
+
+| Vértices escolhidos | Qtd. de escolhas | Arestas disponíveis | Subgrafos |
+|---|---|---|---|
+| 1 vértice | C(3,1) = 3 | 0 → 2⁰ = 1 | 3 · 1 = 3 |
+| 2 vértices | C(3,2) = 3 | 1 → 2¹ = 2 | 3 · 2 = 6 |
+| 3 vértices | C(3,3) = 1 | 3 → 2³ = 8 | 1 · 8 = 8 |
+
+Total: 3 + 6 + 8 = **17 subgrafos**.
 
 ## Questão 40
 
