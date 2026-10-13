@@ -1,6 +1,6 @@
 # Simulado Grafos — Resolução
 
-## Questão 1
+## Questão 1 ✓
 
 - Um grafo `G = (V, E)` é formado por um conjunto de **vértices** `V` e um
   conjunto de **arestas** `E`, onde cada aresta liga dois vértices
@@ -9,28 +9,28 @@
 V = {v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11} e
 E = {e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15}
 
-## Questão 2
+## Questão 2 ✓
 
-- Arestas paralela: duas (ou mais) arestas com os mesmos vértices-extremidades.
+- Arestas paralelas: duas (ou mais) arestas com os mesmos vértices-extremidades.
   Considerando o grafo G, não há arestas paralelas.
 
-## Questão 3
+## Questão 3 ✓
 
 - Vértice isolado: não é extremidade de nenhuma aresta (grau 0).
-  Considerando o grafo G, não há vértices isolados
+  Considerando o grafo G, não há vértices isolados, pois todos têm grau ≥ 2.
 
-## Questão 4
+## Questão 4 ✓
 
 - Conjunto vizinhança `N(v)`: todos os vizinhos de `v`.
-  v6: v5, v8, v9, v11
-  v9:v6, v8, v10, v11
+  N(v6) = {v5, v8, v9, v11}
+  N(v9) = {v6, v8, v10, v11}
 
-## Questão 5
+## Questão 5 ✓
 
 - "Grafo simples" é sobre a ausência de laços/paralelas.
-  Como não há laços ou paralelismo, grafo G é dito simples.
+  Como G não possui laços nem arestas paralelas, G é simples.
 
-## Questão 6
+## Questão 6 ✓
 
 - Grau `deg(v)`: número de arestas incidentes em `v` (um laço conta 2).
 
@@ -46,15 +46,18 @@ deg(v9) = 4
 deg(v10) = 2
 deg(v11) = 2
 
-## Questão 7
+## Questão 7 ✓
 
-- Sequência de graus: lista com os **graus** (números) de todos os vértices,
+- Sequência de graus: lista com os graus (números) de todos os vértices,
   geralmente em ordem não crescente, ex.: `(4, 3, 3, 2)`.
 
-## Questão 8
+  Sequência de graus de G = (4, 4, 4, 3, 3, 2, 2, 2, 2, 2, 2)
+
+## Questão 8 ✓
 
 `G` é k-regular se todo vértice tem grau `k`.
-Grafo G não é regular pois possui grais diferentes
+G não é regular, pois possui vértices com graus diferentes
+(ex.: deg(v1) = 2 ≠ deg(v6) = 4).
 
 ## Questão 9
 
@@ -86,7 +89,7 @@ Grafo G não é regular pois possui grais diferentes
 - Ver definição de isomorfismo na questão 15. Se dois grafos são isomorfos,
   eles têm obrigatoriamente o **mesmo número de arestas**.
 
-## Questão 15
+## Questão 15 ✓
 
 `G1=(V1,E1)` e `G2=(V2,E2)` são **isomorfos** se existem bijeções
 `f: V1→V2` e `g: E1→E2` que preservam a incidência (a aresta `g(e)` liga
@@ -99,25 +102,25 @@ número de vértices de cada grau).
 > Para **provar que NÃO são isomorfos** basta achar 1 invariante diferente.
 > Para provar que **são** isomorfos, é preciso exibir as funções f e g.
 
-G1 = V {v1, v2, v3, v4, v5, v6} e A = {a1, a2, a3, a4, a5, a6, a7, a8, a9, a10}
+V1 = {v1, v2, v3, v4, v5, v6}, |E1| = 10
 deg(v1) = 3
 deg(v2) = 4
 deg(v3) = 4
 deg(v4) = 3
 deg(v5) = 2
 deg(v6) = 4
-(2, 3, 3, 4, 4, 4)
+Sequência de graus: (4, 4, 4, 3, 3, 2)
 
-G2 = V {v1, v2, v3, v4, v5, v6} e A = {a1, a2, a3, a4, a5, a6, a7, a8, a9, a10}
+V2 = {v1, v2, v3, v4, v5, v6}, |E2| = 10
 deg(v1) = 2
 deg(v2) = 4
 deg(v3) = 4
 deg(v4) = 4
 deg(v5) = 4
 deg(v6) = 2
-(2, 2, 4, 4, 4, 4)
+Sequência de graus: (4, 4, 4, 4, 2, 2)
 
-G1 e G2 possuem o mesmo número de vértices e arestas, porém diferem nos graus, portanto são invariantes e não são isomorfos.
+G1 e G2 têm o mesmo número de vértices (6) e de arestas (10), mas sequências de graus diferentes. Como a sequência de graus é um invariante, G1 e G2 não são isomorfos.
 
 ## Questão 16
 
@@ -304,11 +307,19 @@ G1 e G2 possuem o mesmo número de vértices e arestas, porém diferem nos graus
   então `G` é Hamiltoniano.
 - Ver na questão 45 a diferença entre suficiente e necessária.
 
-## Questão 47
+## Questão 47 ✓
 
 - **Hamiltoniano**: ciclo passando por todos os vértices uma vez (questão 28).
   Dica: um vértice de **grau 1** não pode estar em nenhum ciclo.
 - **Euleriano**: conexo e todos os graus pares (questão 24).
+
+Graus: deg(v1) = 3, deg(v2) = 3, deg(v3) = 3, deg(v4) = 2, deg(v5) = 1.
+
+- **Não é Hamiltoniano**: v5 tem grau 1 (só é ligado a v2), então não pode
+  pertencer a nenhum ciclo — um ciclo exige que cada vértice tenha 2 arestas
+  no ciclo (uma para entrar e outra para sair).
+- **Não é Euleriano**: pelo Teorema de Euler, todos os vértices precisariam
+  ter grau par, mas v1, v2, v3 e v5 têm grau ímpar.
 
 ## Questão 48
 
