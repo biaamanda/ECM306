@@ -278,12 +278,24 @@ graph LR
   x3 --- y4
 ```
 
-## Questão 20
+## Questão 20 ✓
 
 - `V` pode ser particionado em dois conjuntos não vazios e disjuntos
   `X` e `Y` (`X ∪ Y = V`, `X ∩ Y = ∅`) tais que toda aresta tem uma
   extremidade em `X` e a outra em `Y` (nunca liga dois vértices do mesmo
   lado). Um grafo é bipartido se e somente se não tem ciclo de tamanho ímpar.
+
+E = {v1v2, v1v4, v3v4, v4v5}
+
+**Sim, G é bipartido.** Basta tomar X = {v1, v3, v5} e Y = {v2, v4}:
+
+- v1v2: X–Y ✓
+- v1v4: X–Y ✓
+- v3v4: X–Y ✓
+- v4v5: Y–X ✓
+
+Toda aresta liga um vértice de X a um de Y. (Também se pode justificar assim:
+G não tem nenhum ciclo, logo não tem ciclo ímpar.)
 
 ## Questão 21 ✓
 
@@ -331,7 +343,7 @@ graph LR
   v1 --- v4
 ```
 
-## Questão 23
+## Questão 23 ✓
 
 - **Passeio**: sequência alternada vértice–aresta–vértice… (pode repetir
   vértices e arestas). **Aberto**: começa e termina em vértices diferentes;
@@ -341,6 +353,31 @@ graph LR
 - **Caminho**: passeio **sem repetir vértices** (logo, nem arestas).
 - **Ciclo**: caminho fechado (só o vértice inicial = final se repete).
   Um laço (aresta de um vértice nele mesmo) já forma um ciclo.
+
+Arestas de G:
+
+- e1 = V1V2
+- e2 = V2V3
+- e3 = V2V5
+- e4 = V2V3 (paralela a e2)
+- e5 = V5V4
+- e6 = V3V3 (laço)
+
+A) **Passeio aberto**: V1 e1 V2 e3 V5 e3 V2 e2 V3. A aresta e3 se repete
+   (o passeio permite), e o início (V1) é diferente do fim (V3).
+
+B) **Passeio fechado**: V1 e1 V2 e1 V1. Começa e termina em V1.
+
+C) **Trilha aberta**: V1 e1 V2 e2 V3 e4 V2 e3 V5. Nenhuma aresta se repete
+   (V2 se repete, o que a trilha permite), e V1 ≠ V5.
+
+D) **Circuito**: V2 e2 V3 e6 V3 e4 V2. É uma trilha fechada, sem arestas
+   repetidas (V3 se repete por causa do laço).
+
+E) **Caminho aberto**: V1 e1 V2 e3 V5 e5 V4. Nenhum vértice se repete.
+
+F) **Ciclo**: V2 e2 V3 e4 V2. É um caminho fechado de tamanho 2, formado pelas
+   arestas paralelas. O laço V3 e6 V3 também é um ciclo, de tamanho 1.
 
 ## Questão 24 ✓
 
@@ -617,27 +654,42 @@ graph LR
   a --- d
 ```
 
-## Questão 41
+## Questão 41 ✓
 
 - Grafo **k-regular**: todo vértice tem grau `k` (questão 8).
 - Em `Kn`, cada vértice é ligado a todos os outros `n − 1` vértices.
 
-## Questão 42
+**Para todo n ≥ 1.** Em Kn, cada vértice é adjacente aos outros n − 1
+vértices, logo todos têm grau n − 1: Kn é **(n − 1)-regular**.
+
+## Questão 42 ✓
 
 - Grafo **k-regular**: todo vértice tem grau `k`.
 - Em `Cn` (n ≥ 3), cada vértice tem exatamente 2 vizinhos no anel.
 
-## Questão 43
+**Para todo n ≥ 3** (valores em que Cn está definido). Cada vértice do ciclo
+é ligado ao anterior e ao seguinte, logo todos têm grau 2: Cn é **2-regular**.
+
+## Questão 43 ✓
 
 - Grafo **k-regular**: todo vértice tem grau `k`.
 - Em `Wn` (n ≥ 3), compare o grau do vértice **central** (`n`) com o grau dos
   vértices do **ciclo** (2 do ciclo + 1 do raio).
 
-## Questão 44
+**Só para n = 3.** Em Wn, o centro tem grau n e cada vértice do ciclo tem
+grau 3 (2 do ciclo + 1 raio). Para ser regular, é preciso n = 3. Nesse caso,
+W3 = K4, que é 3-regular. Para n ≥ 4, o centro tem grau n > 3, e Wn não é
+regular.
+
+## Questão 44 ✓
 
 - Grafo **k-regular**: todo vértice tem grau `k`.
 - Em `Qn`, cada vértice tem como vizinhos as sequências que diferem em 1 bit
   (há `n` bits para trocar).
+
+**Para todo n ≥ 1.** Cada vértice de Qn é uma sequência de n bits, e seus
+vizinhos são as sequências obtidas trocando exatamente 1 dos n bits. Logo
+todo vértice tem grau n: Qn é **n-regular**.
 
 ## Questão 45 ✓
 
@@ -683,7 +735,7 @@ Graus: deg(v1) = 3, deg(v2) = 3, deg(v3) = 3, deg(v4) = 2, deg(v5) = 1.
 - **Não é Euleriano**: pelo Teorema de Euler, todos os vértices precisariam
   ter grau par, mas v1, v2, v3 e v5 têm grau ímpar.
 
-## Questão 48
+## Questão 48 ✓
 
 - **Classe P**: problemas de decisão que podem ser **resolvidos** em tempo
   polinomial (`O(nᵏ)`) por um algoritmo determinístico.
@@ -693,7 +745,19 @@ Graus: deg(v1) = 3, deg(v2) = 3, deg(v3) = 3, deg(v4) = 2, deg(v5) = 1.
   de NP pode ser reduzido a ele em tempo polinomial). Ex.: ciclo
   Hamiltoniano, caixeiro viajante (decisão), SAT.
 
-## Questão 49
+**P**: o problema pode ser *resolvido* por um algoritmo em tempo polinomial no
+tamanho da entrada. Na prática, é considerado "tratável". Ex.: decidir se um
+grafo é Euleriano (basta checar conexidade e graus) e caminho mínimo (Dijkstra).
+
+**NP-Completo**: o problema está em NP (uma solução proposta pode ser
+*verificada* em tempo polinomial) **e** todo problema de NP se reduz a ele em
+tempo polinomial. Ou seja, está entre os problemas mais difíceis de NP. Não se
+conhece algoritmo polinomial para nenhum deles. Se algum NP-Completo fosse
+resolvido em tempo polinomial, então P = NP. Ex.: decidir se um grafo é
+Hamiltoniano. É por isso que não existe um teste simples, como o de Euler, para
+ciclos Hamiltonianos.
+
+## Questão 49 ✓
 
 - **Emparelhamento (matching)** `M`: conjunto de arestas sem vértices em
   comum. **Máximo**: com o maior número possível de arestas.
@@ -703,9 +767,35 @@ Graus: deg(v1) = 3, deg(v2) = 3, deg(v3) = 3, deg(v4) = 2, deg(v5) = 1.
 - **Teorema de Berge (1957)**: `M` é máximo ⇔ não existe caminho
   M-aumentante em `G`.
 
-## Questão 50
+**Teorema de Berge**: um emparelhamento M de G é **máximo** se e somente se
+**não existe** caminho M-aumentante em G.
+
+**Importância**: dá um critério de parada e, ao mesmo tempo, um método para
+encontrar o emparelhamento máximo:
+
+1. Comece com um emparelhamento qualquer (até vazio).
+2. Procure um caminho M-aumentante P.
+3. Se existir, troque as arestas de P (as que estão em M saem, as que não
+   estão entram). O novo emparelhamento tem 1 aresta a mais.
+4. Repita até não haver caminho aumentante. Pelo teorema, M é máximo.
+
+É a base de algoritmos como o Húngaro, o de Hopcroft-Karp e o de Edmonds.
+
+## Questão 50 ✓
 
 - **Teorema de Hall (casamento)**: seja `G` bipartido com partes `X` e `Y`.
   Existe um emparelhamento que **cobre todo `X`** ⇔ para todo subconjunto
   `S ⊆ X`, `|N(S)| ≥ |S|` (condição de Hall), onde `N(S)` é o conjunto dos
   vizinhos dos vértices de `S`.
+
+**Teorema de Hall**: em um grafo bipartido G com partes X e Y, existe um
+emparelhamento que cobre todos os vértices de X se e somente se, para todo
+S ⊆ X, |N(S)| ≥ |S|. Isto é, qualquer grupo de vértices de X tem, juntos,
+pelo menos tantos vizinhos quanto o tamanho do grupo.
+
+**Importância**: dá uma condição **necessária e suficiente** para saber se é
+possível atribuir cada elemento de X a um elemento distinto de Y (ex.: pessoas
+a tarefas, candidatos a vagas), sem precisar testar todos os emparelhamentos.
+Para provar que **não** existe tal emparelhamento, basta exibir um S ⊆ X com
+|N(S)| < |S|. Uma consequência: todo grafo bipartido k-regular (k ≥ 1) tem
+emparelhamento perfeito.
