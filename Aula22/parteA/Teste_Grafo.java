@@ -1,5 +1,3 @@
-package br.maua;
-
 /*
  * Grafo:
  *   V1: Campinas          - São Paulo, Poços de Caldas

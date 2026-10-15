@@ -1,5 +1,3 @@
-package br.maua;
-
 public class Aresta {
 
     Vertice origem;

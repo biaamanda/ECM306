@@ -1,5 +1,3 @@
-package br.maua;
-
 import java.util.ArrayList;
 
 public class Grafo {
