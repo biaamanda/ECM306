@@ -5,22 +5,26 @@ public class Grafo {
 
     // 3. Construtor
     public Grafo(int numVertices) {
-        // Complemente o código aqui
+        this.numVertices = numVertices;
+        adjMatrix = new boolean[numVertices][numVertices];   // inicia tudo com false (sem arestas)
     }
 
     // 4. Adiciona aresta entre i e j
     public void addAresta(int i, int j) {
-        // Complemente o código aqui
+        // grafo não-direcionado: a matriz é simétrica
+        adjMatrix[i][j] = true;
+        adjMatrix[j][i] = true;
     }
 
     // 5. Remove aresta entre i e j
     public void removeAresta(int i, int j) {
-        // Complemente o código aqui
+        adjMatrix[i][j] = false;
+        adjMatrix[j][i] = false;
     }
 
     // 6. Retorna true se existe aresta entre i e j
     public boolean ehAresta(int i, int j) {
-        // Complemente o código aqui
+        return adjMatrix[i][j];
     }
 
     // 7. Retorna a matriz de adjacência como String
@@ -31,6 +35,14 @@ public class Grafo {
        3: 1 0 0 0
      */
     public String retornaGrafo() {
-        // Complemente o código aqui
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < numVertices; i++) {
+            s.append(i + ":");
+            for (boolean j : adjMatrix[i]) {
+                s.append(" " + (j ? 1 : 0));
+            }
+            s.append("\n");
+        }
+        return s.toString();
     }
 }
