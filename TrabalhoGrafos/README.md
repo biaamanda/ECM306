@@ -1,7 +1,5 @@
 # Trabalho de Grafos — Sticker por corte mínimo
 
-ECM306 · Prof. Calvetti · entrega e apresentação em 12/11/2026.
-
 A aplicação abre uma imagem, o usuário clica no objeto e o programa gera um
 **sticker** (PNG com fundo transparente), como o celular faz quando você
 pressiona uma foto.
@@ -27,15 +25,15 @@ do clique, com limiar de cor).
 
 ## Arquivos
 
-| Arquivo | O que faz |
-|---|---|
-| `src/Aresta.java` | Aresta com capacidade, fluxo e aresta reversa |
-| `src/Grafo.java` | Grafo em lista de adjacência |
-| `src/EdmondsKarp.java` | Fluxo máximo e BFS final do lado de S |
-| `src/Segmentador.java` | Monta o grafo da imagem, corte mínimo, BFS, gera o sticker |
-| `src/PainelImagem.java` | Painel Swing que mostra a imagem e recebe o clique |
-| `src/App.java` | Janela principal (e modo terminal) |
-| `exemplos/` | Imagens de teste e a comparação corte × BFS |
+| Arquivo                 | O que faz                                                  |
+| ----------------------- | ---------------------------------------------------------- |
+| `src/Aresta.java`       | Aresta com capacidade, fluxo e aresta reversa              |
+| `src/Grafo.java`        | Grafo em lista de adjacência                               |
+| `src/EdmondsKarp.java`  | Fluxo máximo e BFS final do lado de S                      |
+| `src/Segmentador.java`  | Monta o grafo da imagem, corte mínimo, BFS, gera o sticker |
+| `src/PainelImagem.java` | Painel Swing que mostra a imagem e recebe o clique         |
+| `src/App.java`          | Janela principal (e modo terminal)                         |
+| `exemplos/`             | Imagens de teste e a comparação corte × BFS                |
 
 ## Como rodar
 
