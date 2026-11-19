@@ -1,5 +1,7 @@
 # Códigos — P4 ECM306
 
+> **Para adaptar a uma questão nova**, use as bases comentadas de [BASES_P4.md](BASES_P4.md) (pasta [bases/](bases/)).
+
 Códigos Java testados com os casos das provas antigas. Os arquivos `.java` também estão em [modelos/](modelos/). A teoria está em [TEORIA_P4.md](TEORIA_P4.md).
 
 ## Como gerar e rodar o .jar
